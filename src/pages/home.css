@@ -5,7 +5,7 @@
   font-family: 'Garamond', serif;
 }
 
-.hamburger-menu {
+.hamburgerMenu {
   font-size: 25px; 
   cursor: pointer;
   background-color: white;
@@ -43,7 +43,7 @@
 }
 
 
-.calendar-outer {
+.calendarOuter {
   position: absolute;
   top: 170px;
   left: 20px;
@@ -59,7 +59,7 @@
   width: 100%;
 }
 
-.calendar-outer .react-calendar {
+.calendarOuter .react-calendar {
   width: 100%;
   max-width: 100%;
   position: absolute;
@@ -73,7 +73,7 @@
   padding: 10px;
 }
 
-.calendar-outer .react-calendar__tile--active {
+.calendarOuter .react-calendar__tile--active {
   background-color: rgba(0, 0, 0, 0.1); 
 }
 
@@ -118,7 +118,7 @@
   text-align: center;
 }
 
-.start-game {
+.startGame {
   position: absolute;
   top: 50px;
   left: 66%;
@@ -128,7 +128,7 @@
   text-align: center;
 }
 
-.journal {
+.journalLink {
   position: absolute;
   top: 370px;
   left: 66%;
@@ -136,4 +136,52 @@
   height: 300px;
   background-color: lightgray;
   text-align: center;
+}
+
+.journalLink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.journalLink a:hover {
+  color: cadetblue;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .greeting,
+  .calendarOuter,
+  .todo,
+  .analytics,
+  .startGame,
+  .shop,
+  .motivation,
+  .journalLink {
+    flex: 1 1 90%;
+    margin: 10px 0; 
+    min-height: 150px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .greeting,
+  .calendarOuter,
+  .todo,
+  .analytics,
+  .startGame,
+  .shop,
+  .motivation,
+  .journalLink {
+    min-height: 80px; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hamburgerMenu {
+    font-size: 20px; 
+  }
 }

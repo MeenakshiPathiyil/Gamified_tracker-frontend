@@ -1,0 +1,78 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-family: 'Garamond', serif;
+}
+
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.hamburgerMenu {
+    font-size: 25px; 
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-left: 15px;
+}
+  
+.journal {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.journal h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.imageContainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.emotions {
+    width: 100px;
+    height: 80px;
+    margin: 0 30px;
+}
+
+.thoughts {
+    width: 80%;
+    height: 200px;
+    margin-top: 30px;
+    padding: 10px;
+    font-family: 'Garamond', serif; 
+    font-size: 1rem;
+    border: 1px solid lightgray; 
+    border-radius: 5px;
+    resize: vertical;
+}
+
+.thoughts:focus {
+    border-color: darkgray; 
+    outline: none; 
+}
+
+@media (max-width: 768px) {
+    .thoughts {
+        width: 95%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .thoughts {
+        width: 100%; 
+    }
+}

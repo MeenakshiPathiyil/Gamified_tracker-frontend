@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './home.css'; 
 import Calendar from 'react-calendar'; 
 import 'react-calendar/dist/Calendar.css'; 
+import { Link } from 'react-router-dom';
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -9,14 +10,14 @@ const Home = () => {
   return (
     <div className="container">
       <div className="menu">
-        <button className="hamburger-menu">☰</button>
+        <button className="hamburgerMenu">☰</button>
       </div>
       <div className="greeting">
         <h2>Greeting</h2>
         <button>Add Habit</button>
         <button>Browse Other Habits</button>
       </div>
-      <div className="calendar-outer">
+      <div className="calendarOuter">
         <h2>Calendar</h2>
         <div className="calendar">
           <Calendar onChange={setDate} value={date} />
@@ -28,7 +29,7 @@ const Home = () => {
       <div className="todo">
         <h2>To Do List Overview</h2>
       </div>
-      <div className="start-game">
+      <div className="startGame">
         <h2>Start Game</h2>
       </div>
       <div className="shop">
@@ -37,8 +38,10 @@ const Home = () => {
       <div className="motivation">
         <h2>Motivation</h2>
       </div>
-      <div className="journal">
-        <h2>Journal</h2>
+      <div className="journalLink">
+        <h2>
+          <Link to="/journal">Journal</Link>
+        </h2>
       </div>
     </div>
   );
