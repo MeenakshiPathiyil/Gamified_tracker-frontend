@@ -29,8 +29,10 @@ const Home = () => {
       <div className="todo">
         <h2>To Do List Overview</h2>
       </div>
-      <div className="startGame">
-        <h2>Start Game</h2>
+      <div className="startGameLink">
+        <h2>
+          <Link to="/avatar">Start Game</Link>
+        </h2>
       </div>
       <div className="shop">
         <h2>Shop</h2>
