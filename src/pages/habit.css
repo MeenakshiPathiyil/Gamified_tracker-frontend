@@ -1,0 +1,71 @@
+ 
+  .dnt {
+    width: 45%;
+    height: 500px;
+    background-color: orange;
+    border: 2px solid #e0a2f8;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .grph, .blank {
+    width: 20%;
+    height: 250px;
+    background-color: orange;
+    border: 2px solid #e0a2f8;
+    margin-top: 2%;
+    margin-left: 3%;
+  }
+  
+.rw1 {
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    margin: 20px;
+}
+
+.weekly{
+    margin-top: 2%;
+    margin-left: 3%;
+    width: 45%;
+    height: 500px;
+    background-color: orange;
+}
+.smr, .hs {
+    width:15%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.add,.minus{
+    width:7%;
+    margin-left:3%;
+    margin-top: 2.5%;
+    padding: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.react-calendar{
+    background-color: rgb(255, 255, 255);
+}
+.cal{
+    margin-top: -33%;
+    width: 20%;
+    margin-left:3% ;
+}
+.react-calendar__navigation button{
+    background-color: #ffffff;
+    width:20%;
+}
+.react-calendar__tile--now {
+    background-color: orange; 
+    color: white;
+    font-weight: bold;
+}
+button:hover {
+    background-color: #e0a2f8;
+    color: white;
+    cursor: pointer;
+  }

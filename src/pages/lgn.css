@@ -1,0 +1,26 @@
+.row1,.row2,.row0,.row3,.bsp {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+  }  
+  .btn0,.btn1,.btn2,.btn3,.btn4,.lnk1,.lnk2,.lnk3 {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f0f0f0;
+    border: 2px solid #000;
+    border-radius: 5px;
+  }
+  .ttl{
+    text-align: center;
+  }
+  .uname,.pw,.eml{
+    text-align: center;
+  }
+  button:hover {
+    background-color: #79e6d4;
+    color: white;
+    cursor: pointer;
+  }
+
+  
