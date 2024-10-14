@@ -1,0 +1,50 @@
+.container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    font-family: 'Garamond', serif;
+}
+
+.menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
+.hamburgerMenu {
+    font-size: 25px; 
+    cursor: pointer;
+    background-color: white;
+    border: none;
+    margin-left: 15px;
+}
+  
+.chooseAvatar {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    background-color: white;
+    padding-top: 20px;
+}
+
+.chooseAvatar h1 {
+    font-size: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.images {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    gap: 30px;
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+}

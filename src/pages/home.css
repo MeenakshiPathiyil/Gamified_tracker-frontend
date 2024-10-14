@@ -1,0 +1,196 @@
+.container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  font-family: 'Garamond', serif;
+}
+
+.hamburgerMenu {
+  font-size: 25px; 
+  cursor: pointer;
+  background-color: white;
+  border: none;
+  margin-left: 15px;
+}
+
+.greeting {
+  position: absolute;
+  top: 50px;
+  left: 20px;
+  width: 32%;
+  height: 100px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.greeting button {
+  background-color: gray;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block; 
+  font-size: 14px; 
+  margin: -10px 5px; 
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.greeting button:hover {
+  background-color: darkgray; 
+}
+
+
+.calendarOuter {
+  position: absolute;
+  top: 170px;
+  left: 20px;
+  width: 32%;
+  height: 300px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.calendar {
+  transform: scale(0.74); 
+  transform-origin: top left; 
+  width: 100%;
+}
+
+.calendarOuter .react-calendar {
+  width: 100%;
+  max-width: 100%;
+  position: absolute;
+  left: 16%;
+  top: -40px;
+  height: 300px;
+  background-color: transparent;
+  border-radius: 10px;
+  border: none;
+  font-family: 'Times New Roman', serif; 
+  padding: 10px;
+}
+
+.calendarOuter .react-calendar__tile--active {
+  background-color: rgba(0, 0, 0, 0.1); 
+}
+
+.shop {
+  position: absolute;
+  top: 490px;
+  left: 20px;
+  width: 32%;
+  height: 100px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.motivation {
+  position: absolute;
+  top: 610px;
+  left: 20px;
+  width: 32%;
+  height:70px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+
+.todo {
+  position: absolute;
+  top: 50px;
+  left: 36%;
+  width: 27%;
+  height: 400px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.analytics {
+  position: absolute;
+  top: 460px;
+  left: 36%;
+  width: 27%;
+  height: 220px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.startGameLink {
+  position: absolute;
+  top: 50px;
+  left: 66%;
+  width: 32%;
+  height: 300px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.startGameLink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.startGameLink a:hover {
+  color: cadetblue;
+}
+
+.journalLink {
+  position: absolute;
+  top: 370px;
+  left: 66%;
+  width: 32%;
+  height: 300px;
+  background-color: lightgray;
+  text-align: center;
+}
+
+.journalLink a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.journalLink a:hover {
+  color: cadetblue;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .greeting,
+  .calendarOuter,
+  .todo,
+  .analytics,
+  .startGame,
+  .shop,
+  .motivation,
+  .journalLink {
+    flex: 1 1 90%;
+    margin: 10px 0; 
+    min-height: 150px;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .greeting,
+  .calendarOuter,
+  .todo,
+  .analytics,
+  .startGame,
+  .shop,
+  .motivation,
+  .journalLink {
+    min-height: 80px; 
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .hamburgerMenu {
+    font-size: 20px; 
+  }
+}
