@@ -1,19 +1,12 @@
-import './App.css';
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/home';  
-import Journal from './pages/Journal';
-import Avatar from './pages/Avatar';
+import { Routes, Route } from 'react-router-dom';
+import W0 from './pages/w0';
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home/>} />  
-        <Route path="/journal" element={<Journal />} />
-        <Route path="/avatar" element={<Avatar />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<W0 />} />  {/* Render W0 component for the root path */}
+    </Routes>
   );
 }
 
