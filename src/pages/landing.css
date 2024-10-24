@@ -1,0 +1,230 @@
+.landing {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background: ivory;
+    display: flex;
+    flex-direction: column;
+   
+}
+.landing-header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    background: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+    position:sticky;
+}
+.button-container {
+    display: flex;
+    gap: 15px; /* Space between buttons */
+}
+.landing-container{
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: ivory;
+    text-align:center;
+    justify-content: center;
+    align-items: center;
+}
+
+.Website-name{
+    font-size:3rem;
+    color: black;
+    margin-bottom:20px;
+    border: dotted;
+    font-weight:bold;
+}
+
+.demo, .signup {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.demo:hover, .signup:hover {
+    background-color: #0056b3;
+}
+.tagline {
+    font-size: 1.5rem;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+/* Second Page (Introduction Section) */
+.landing2-container {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ivory;
+    padding: 40px;
+    gap: 30px;
+}
+
+.introduction {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%; /* Centered content with some padding */
+    margin-bottom: 20px;
+}
+
+.intro-text {
+    flex: 1;
+    color: black;
+    text-align: right;
+    padding: 15px;
+}
+
+.intro-img {
+    width: 400px;
+    height: 300px;
+    background-color: #555;
+    color: floralwhite;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+}
+
+/* Circular Section Elements */
+.desc-img {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.desc, .game, .char {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #555;
+    color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.desc:hover, .game:hover, .char:hover {
+    background-color: grey;
+}
+
+.landing3-container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: ivory;
+    padding: 40px;
+    gap: 30px;
+}
+.abtus{
+    font-size:xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    color:#553769;
+    
+}
+.about{
+    display:flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    margin:auto;
+    padding: 20px;
+
+}
+.b1,.b2,.b3{
+    width:200px;
+    height:600px;
+    color:#7C58AA;
+    stroke: #7C58AA;
+    background-color: #553769;
+    text-align: justify;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+
+}
+.feedback{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+}
+.input-container{
+    display:flex;
+    align-items:center;
+    margin-top: 10px;
+}
+.input {
+    width: 300px;
+    height: 50px;
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #7C58AA;
+    border-radius: 8px;
+    outline: none;
+    margin-right: 10px;  /* Add space between input and button */
+}
+
+/* Submit button styling */
+.submit-btn {
+    background-color: #7C58AA;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+    background-color: #553769;  /* Darken button on hover */
+}
+
+@media (max-width: 768px) {
+    .Website-name {
+        font-size: 2.5rem;
+    }
+    
+    .demo, .signup {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .tagline {
+        font-size: 1.2rem;
+    }
+}
+
