@@ -44,21 +44,18 @@
     font-weight:bold;
 }
 
-.demo, .signup {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+.demo{
+    width:20%;
+    padding: 1px 10px;
+    margin-left:50%;
+}
+.signup {
+    width:20%;
+    padding: 1px 10px;
+    margin-left:80%;
 }
 
-.demo:hover, .signup:hover {
-    background-color: #0056b3;
-}
+
 .tagline {
     font-size: 1.5rem;
     color: #555;

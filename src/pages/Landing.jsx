@@ -35,10 +35,10 @@ function Landing(){
             <header className="landing-header">
                 <div className="button-container">
                 {showGetDemo && (
-                    <button className="demo">Get a demo</button>
+                   <img src ={`${process.env.PUBLIC_URL}/images/demo.png`} alt ="DEMO"  className="demo"/>
                 )}
                 {showSignUp &&(
-                    <button className="signup">Sign Up</button>
+                     <img src ={`${process.env.PUBLIC_URL}/images/login.png`} alt ="LOGIN"  className="signup"/>
                 )}
                 </div>
             </header>
