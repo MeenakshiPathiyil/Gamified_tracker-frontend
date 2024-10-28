@@ -23,4 +23,9 @@
     cursor: pointer;
   }
 
+  .lnk3 a{
+    text-decoration: none;
+    color: inherit;
+  }
+
   
