@@ -1,7 +1,10 @@
 import React, { useState } from "react";
-import {addHabit, updateHabitProgress} from './services/HabitService';
+import addHabit from '../services/HabitService';
 import Calendar from 'react-calendar';
+import Modal from 'react-modal';
 import './habit.css'; 
+
+Modal.setAppElement('#root');
 
 const HabitTracker = () => {
     const [showCalendar, setShowCalendar] = useState(false);
@@ -13,6 +16,7 @@ const HabitTracker = () => {
     const [showWkHbt,setshowWkHbt]=useState(false);
     const [title, setTitle] = useState('');
     const[frequency, setFrequency] = useState('');
+    const [isModalOpen, setisModalOpen] = useState(false);
 
     const pg1 = () => {
         setShowCalendar(true); 
@@ -35,14 +39,22 @@ const HabitTracker = () => {
     const openModal = () => setisModalOpen(true);
     const closeModal = () => setisModalOpen(false);
 
-    const handleAddHabit = async () => {
+    const handleAddHabit = async (e) => {
+        e.preventDefault();
+        const token = localStorage.getItem('token');
         const habitData = {
             title,
             frequency
         };
-        const result = await addHabit(habitData);
-        console.log(result);
-        closeModal();
+        console.log('Submitting habit: ', habitData);
+        try {
+            const result = await addHabit(habitData, token);
+            console.log(result);
+            closeModal();
+        }
+        catch(error) {
+            console.error('Submission error: ', error);
+        }
     };
 
     // const handleUpdateProgress = async (habitId) => {
@@ -79,7 +91,7 @@ const HabitTracker = () => {
             )}
             {showBtn && (
                 <div className="updt">
-                <button className="add" onVlick={openModal}>+</button>
+                <button className="add" onClick={openModal}>+</button>
                 <button className="minus">-</button>
                 </div>
             )}
@@ -87,25 +99,25 @@ const HabitTracker = () => {
             <Modal 
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
-                contentLabel="Add habit Modal"
+                contentLabel="Add Habit Modal"
                 className="Modal"
                 overlayClassName="Overlay">
                     <h2>Add a new habit</h2>
-                    <form>
+                    <form onSubmit={handleAddHabit}>
                         <div>
                             <label>Habit Title: </label>
-                            <input tyep="text" value={title} onChange={(e) => setTitle(e.target.value)}/>
-                        </div>
+                            <input type="text" className="modalInput" value={title} onChange={(e) => setTitle(e.target.value)} required/>
+                        </div><br/>
                         <div>
                             <label>Frequency: </label>
-                            <select value={frequency} onChange={(e) => setFrequency(e.target.value)}>
+                            <select className="modalInput" value={frequency} onChange={(e) => setFrequency(e.target.value)} required>
                                 <option value="daily">Daily</option>
                                 <option value="weekly">Weekly</option>
                                 <option value="custom">Custom</option>
                             </select>
-                        </div>
-                        <button type="Submit" onClick={handleAddHabit}>Submit</button>
-                        <button type="button" onClick={closeModal}>Cancel</button>
+                        </div><br/>
+                        <button type="Submit" className="modalButton">Submit</button>
+                        <button type="button" className="modalButton" onClick={closeModal}>Cancel</button>
                     </form>
                 </Modal>
 
@@ -114,4 +126,4 @@ const HabitTracker = () => {
     );
 }
 
-export default Habi;
+export default HabitTracker;
