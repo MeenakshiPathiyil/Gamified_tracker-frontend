@@ -55,7 +55,7 @@
     filter: drop-shadow(0 0 15px rgba(90, 59, 103, 3));
 }
 .signup {
-    width:10%;
+    width:100%;
     padding: 1px 10px;
     filter: drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
     transition: filter 0.3s ease;
