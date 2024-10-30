@@ -69,3 +69,44 @@ button:hover {
     color: white;
     cursor: pointer;
   }
+
+.Overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(26, 21, 50, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Modal {
+    position: relative;
+    background-color: rgb(90, 59, 103);
+    color: rgb(245, 179, 179);
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    font-size: 100%;
+}
+
+.modalInput {
+    width: 100%;
+    border-radius: 5px;
+    background-color: rgb(115, 82, 128);
+    color:rgb(245, 179, 179);
+}
+
+.modalButton {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: rgb(115, 82, 128);
+    color:rgb(245, 179, 179);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}

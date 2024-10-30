@@ -14,7 +14,9 @@ const Home = () => {
       </div>
       <div className="greeting">
         <h2>Greeting</h2>
-        <button>Add Habit</button>
+        <button>
+          <Link to="/tracker">Add Habit</Link>
+        </button>
         <button>Browse Other Habits</button>
       </div>
       <div className="calendarOuter">

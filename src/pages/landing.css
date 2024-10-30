@@ -2,7 +2,7 @@
     position: relative;
     height: 100vh;
     width: 100%;
-    background: ivory;
+    background: #1a1532;
     display: flex;
     flex-direction: column;
    
@@ -16,7 +16,7 @@
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
-    background: rgba(255, 255, 255, 0.8); /* Optional: semi-transparent background */
+    background: rgba(245, 179, 179, 0.8); /* Optional: semi-transparent background */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
     position:sticky;
 }
@@ -30,52 +30,61 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: ivory;
+    background-color:rgb(26, 21, 50);
     text-align:center;
     justify-content: center;
     align-items: center;
 }
 
 .Website-name{
-    font-size:3rem;
-    color: black;
-    margin-bottom:20px;
-    border: dotted;
-    font-weight:bold;
+    margin-top: 100px;
+    height:500px;
+    color:rgb(245, 179, 179); 
+}
+.symbol{
+    width:10%;
+}
+.demo{
+    width:10%;
+    padding: 1px 10px;
+    margin-left:68%;
+    filter: drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8)); 
+    transition: filter 0.3s ease;
+}
+.demo:hover,.signup:hover{
+    filter: drop-shadow(0 0 15px rgba(90, 59, 103, 3));
+}
+.signup {
+    width:100%;
+    padding: 1px 10px;
+    filter: drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
+    transition: filter 0.3s ease;
 }
 
-.demo, .signup {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 15px 30px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.demo:hover, .signup:hover {
-    background-color: #0056b3;
-}
 .tagline {
     font-size: 1.5rem;
-    color: #555;
+    color: rgb(245, 179, 179);
     margin-top: 20px;
     font-style: italic;
 }
 
+.tagline1 {
+   height:90px;
+}
+
+.tagline1:hover {
+    filter: drop-shadow(0 0 15px rgba(245, 179, 179, 1))
+}
 /* Second Page (Introduction Section) */
 .landing2-container {
-    height: 100vh;
+    height: 250vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ivory;
+    background: #1a1532;
     padding: 40px;
-    gap: 30px;
+    gap: 50px;
 }
 
 .introduction {
@@ -88,16 +97,21 @@
 
 .intro-text {
     flex: 1;
-    color: black;
+    color: rgb(245, 179, 179);
     text-align: right;
     padding: 15px;
+    font-size: xx-large;
+}
+
+.intro-img:hover{
+    filter: drop-shadow(0 0 15px rgba(245, 179, 179, 1));
+    width:550px;
+    height: 350px;
 }
 
 .intro-img {
-    width: 400px;
+    width: 450px;
     height: 300px;
-    background-color: #555;
-    color: floralwhite;
     text-align: center;
     display: flex;
     justify-content: center;
@@ -106,46 +120,54 @@
 }
 
 /* Circular Section Elements */
-.desc-img {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-}
 
-.desc, .game, .char {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    background-color: #555;
-    color: beige;
+.desc-img, .desc-text {
     display: flex;
-    justify-content: center;
+    justify-content: space-around; /* Evenly space images and paragraphs */
     align-items: center;
-    font-weight: bold;
-    font-size: 1.5rem;
+    text-align: center;
+    width: 100%;
+  }
+  
+  /* Container for each image and its paragraph */
+  .desc-container {
+    display: flex;
+    flex-direction: column; /* Stack image on top of text */
+    align-items: center;
+    width: 250px; /* Keeps images and paragraphs centered */
     margin: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.desc:hover, .game:hover, .char:hover {
-    background-color: grey;
-}
-
+  }
+  
+  .desc, .game, .char {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    margin-bottom: 10px; /* Space between image and text */
+  }
+  
+  .brief-text, .game-text, .char-text {
+    color: rgb(245, 179, 179);
+    font-size: 1.1rem;
+    width: 250px;
+    text-align: center;
+  }
+  
+  
 .landing3-container{
-    height: 100vh;
+    height: 300vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: ivory;
+    background: #1a1532;
     padding: 40px;
-    gap: 30px;
+    gap:-120px;
 }
 .abtus{
-    font-size:xx-large;
-    font-family: 'Times New Roman', Times, serif;
+    margin-top: 100px;
+    width: 400px;
     text-align: center;
-    color:#553769;
+
     
 }
 .about{
@@ -160,18 +182,76 @@
 .b1,.b2,.b3{
     width:200px;
     height:600px;
-    color:#7C58AA;
-    stroke: #7C58AA;
-    background-color: #553769;
     text-align: justify;
     display:flex;
     justify-content: center;
     align-items: center;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
-
 }
+.about1,.about2{
+    color: rgb(245, 179, 179);
+    width:200px;
+    font-size: 1.1rem;
+}
+.team {
+    display: flex;                   
+    flex-direction: column;           
+    align-items: center;              
+    width: 100%;                     
+    padding: 20px;
+}
+
+.meeth {
+    margin-top: 100px;               
+    width: 495px;                    
+    text-align: center;               
+}
+
+.team-members {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+.meena-container, .neem-container, .namb-container {
+    position: relative;
+    width: 300px;
+}
+
+.meena, .neem, .namb {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Hidden paragraph box overlay for each member */
+.fmeena, .fneema, .fnam {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Show overlay on hover */
+.meena-container:hover .fmeena,
+.neem-container:hover .fneema,
+.namb-container:hover .fnam {
+    opacity: 1;
+}
+
+
 .feedback{
     font-family: 'Times New Roman', Times, serif;
     font-size: large;
@@ -180,6 +260,7 @@
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
+    color: rgb(245, 179, 179);
 }
 .input-container{
     display:flex;
@@ -194,10 +275,9 @@
     border: 2px solid #7C58AA;
     border-radius: 8px;
     outline: none;
-    margin-right: 10px;  /* Add space between input and button */
+    margin-right: 10px; 
 }
 
-/* Submit button styling */
 .submit-btn {
     background-color: #7C58AA;
     color: white;

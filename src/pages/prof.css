@@ -1,0 +1,52 @@
+/* Profile picture styling */
+.img {
+    margin-top: 5%;
+    margin-left: 5%;
+    width: 45%;
+    height: 300px;
+    float: left;
+}
+
+/* Name, date of joining, and button styling */
+.profiletxt {
+    margin-left: 55%; /* To position it to the right of the profile picture */
+    margin-top: 5%;
+}
+
+.name {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.join {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+/* Statistics box in the center */
+.sts {
+    margin-top: 5%;
+    width: 75%;
+    height: 300px;
+    background-color: aquamarine;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* Achievements box in the center, below statistics */
+.ach {
+    margin-top: 2%;
+    width: 75%;
+    height: 300px;
+    background-color: aquamarine;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

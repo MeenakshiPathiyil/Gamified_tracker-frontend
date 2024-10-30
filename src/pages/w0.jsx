@@ -40,16 +40,29 @@ function W0() {
 
   const handleNext = async () => {
     if (step === 3) {
+      console.log('Submitting form data: ', formData);
+
       try {
         const result = await registerUser(formData); 
-        console.log(result); 
-        navigate('/submit'); 
-      } catch (error) {
+        console.log('Server response: ', result); 
+        
+        if (result.token) {
+          const { token } = result;
+          localStorage.setItem('token', token);
+          console.log('Login Successful');
+          navigate('/home'); 
+        }
+        else {
+          console.error('Token not found in response');
+        }
+      } 
+      catch (error) {
         console.error("There was an error submitting the data!", error);
       }
-    } else {
-      setStep(prevStep => prevStep + 1); 
-    }
+    } 
+    else {
+        setStep(prevStep => prevStep + 1); 
+      }
   };
 
   return (
