@@ -1,8 +1,13 @@
+.body {
+  background-color: #1a1532;
+}
+
 .container {
   position: relative;
   width: 100%;
   height: auto;
   font-family: 'Garamond', serif;
+  background-color: #1a1532;
 }
 
 .hamburgerMenu {
@@ -19,8 +24,69 @@
   left: 20px;
   width: 32%;
   height: 100px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  margin-top: 45px;
+  padding: 0;
+  justify-content: center;
+}
+
+.button-item {
+  width: 100px;
+  height: auto;
+  margin: 0 5px;
+  object-fit: cover
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(46, 27, 91, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999; 
+}
+
+.modal-content {
+  padding: 20px;
+  width: 80%;
+  max-width: 400px;
+  border-radius: 8px;
+  position: relative;
+  text-align: center;
+  background-color: #2e1b5b;
+  color: #d4bafb;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
 }
 
 .greeting button {
@@ -42,6 +108,10 @@
   background-color: darkgray; 
 }
 
+.calendarpic {
+  max-width: 40%;
+  height: auto;
+}
 
 .calendarOuter {
   position: absolute;
@@ -49,7 +119,7 @@
   left: 20px;
   width: 32%;
   height: 300px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
 }
 
@@ -64,7 +134,6 @@
   max-width: 100%;
   position: absolute;
   left: 16%;
-  top: -40px;
   height: 300px;
   background-color: transparent;
   border-radius: 10px;
@@ -74,7 +143,43 @@
 }
 
 .calendarOuter .react-calendar__tile--active {
-  background-color: rgba(0, 0, 0, 0.1); 
+  background-color: #c48dc8; 
+  color: #2e1b5b !important;
+}
+
+.calendarOuter .react-calendar__tile {
+  color: #d4bafb;
+}
+
+.calendarOuter .react-calendar__tile:hover {
+  background-color: rgba(144, 127, 184, 0.4) !important;
+}
+
+.calendarOuter .react-calendar__month-view__days__day--neighboringMonth {
+  color: rgba(212, 186, 251, 0.4);
+}
+
+.calendarOuter .react-calendar__navigation__label {
+  color: #d4bafb;
+  background-color: #2e1b5b;
+}
+
+.calendarOuter .react-calendar__navigation__label:hover {
+  background-color: rgba(144, 127, 184, 0.4) !important;
+}
+
+.calendarOuter .react-calendar__navigation__arrow {
+  color: #d4bafb;
+  background-color: #2e1b5b;
+}
+
+.calendarOuter .react-calendar__navigation__arrow:hover {
+  background-color: rgba(144, 127, 184, 0.4) !important;
+}
+
+.calendarOuter .react-calendar__month-view__weekdays {
+  color: #d4bafb;
+  text-decoration: none;
 }
 
 .shop {
@@ -83,8 +188,13 @@
   left: 20px;
   width: 32%;
   height: 100px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
+}
+
+.shoppic {
+  max-width: 25%;
+  height: auto;
 }
 
 .motivation {
@@ -93,8 +203,13 @@
   left: 20px;
   width: 32%;
   height:70px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
+}
+
+.motivationpic {
+  max-width: 35%;
+  height: auto;
 }
 
 
@@ -104,8 +219,13 @@
   left: 36%;
   width: 27%;
   height: 400px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
+}
+
+.todopic {
+  max-width: 40%;
+  height: auto;
 }
 
 .analytics {
@@ -114,8 +234,13 @@
   left: 36%;
   width: 27%;
   height: 220px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
+}
+
+.analyticspic {
+  max-width: 40%;
+  height: auto;
 }
 
 .startGameLink {
@@ -124,7 +249,7 @@
   left: 66%;
   width: 32%;
   height: 300px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
 }
 
@@ -137,13 +262,18 @@
   color: cadetblue;
 }
 
+.gamepic {
+  max-width: 45%;
+  height: auto;
+}
+
 .journalLink {
   position: absolute;
   top: 370px;
   left: 66%;
   width: 32%;
   height: 300px;
-  background-color: lightgray;
+  background-color: #2e1b5b;
   text-align: center;
 }
 
@@ -154,6 +284,11 @@
 
 .journalLink a:hover {
   color: cadetblue;
+}
+
+.journalpic {
+  max-width: 40%;
+  height: auto;
 }
 
 @media screen and (max-width: 768px) {
