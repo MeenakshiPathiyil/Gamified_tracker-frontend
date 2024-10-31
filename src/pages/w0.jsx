@@ -11,7 +11,7 @@ function W0() {
   const items0 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   const items1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
   const items2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-  const items3 = ['.', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '_'];
+  const items3 = ['dot', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '_','@'];
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -66,8 +66,9 @@ function W0() {
   };
 
   return (
-    <div>
-      <h1 className="ttl">Enter Player Details</h1>
+    <div className="body">
+      
+      <img src="/images/player.png" alt="Player" className="player-img" />
 
       {step === 1 && (
         <div className="uname">
@@ -111,31 +112,62 @@ function W0() {
 
       <div className="row0">
         {items0.map((item, index) => (
-          <button key={index} className="btn0" onClick={() => keyd(item)}>{item}</button>
+          <button key={index} className="btn0" onClick={() => keyd(item)}>{item}
+          <img 
+            src={`/images/keys/${item}.png`} 
+            alt={`Key ${item}`} 
+            className="key-img" />
+          </button>
         ))}
       </div>
 
       <div className="row1">
         {items1.map((item, index) => (
-          <button key={index} className="btn1" onClick={() => keyd(item)}>{item}</button>
+          <button key={index} className="btn1" onClick={() => keyd(item)}>{item}
+          <img 
+          src={`/images/keys/${item}.png`} 
+          alt={`Key ${item}`} 
+          className="key-img" />
+
+          
+          </button>
         ))}
       </div>
 
       <div className="row2">
         {items2.map((item, index) => (
-          <button key={index} className="btn2" onClick={() => keyd(item)}>{item}</button>
+          <button key={index} className="btn2" onClick={() => keyd(item)}>{item}
+          <img
+            src={`/images/keys/${item}.png`} 
+            alt={`Key ${item}`} 
+            className="key-img" 
+          
+          />
+          </button>
         ))}
       </div>
 
       <div className="row3">
         {items3.map((item, index) => (
-          <button key={index} className="btn3" onClick={() => keyd(item)}>{item}</button>
+          <button key={index} className="btn3" onClick={() => keyd(item)}>{item}
+          <img
+            src={`/images/keys/${item}.png`} 
+            alt={`Key ${item}`} 
+            className="key-img" 
+          
+          />
+          
+          </button>
         ))}
       </div>
 
       <div className="bsp">
-        <button className="btn4" onClick={handleBackspace}>DEL</button>
-        <button className="lnk1" onClick={handleNext}>Next</button> {/* Navigate between steps */}
+        <button className="btn4" onClick={handleBackspace}>
+        <img src="/images/delete.png" alt="delete" className="delete-img" />
+        </button>
+        <button className="lnk1" onClick={handleNext}>
+        <img src="/images/next1.png" alt="next" className="next-img" />
+          </button> 
       </div>
     </div>
   );

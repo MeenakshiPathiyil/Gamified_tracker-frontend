@@ -1,31 +1,134 @@
-.row1,.row2,.row0,.row3,.bsp {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 10px;
-  }  
-  .btn0,.btn1,.btn2,.btn3,.btn4,.lnk1,.lnk2,.lnk3 {
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #f0f0f0;
-    border: 2px solid #000;
-    border-radius: 5px;
-  }
-  .ttl{
-    text-align: center;
-  }
-  .uname,.pw,.eml{
-    text-align: center;
-  }
-  button:hover {
-    background-color: #79e6d4;
-    color: white;
-    cursor: pointer;
+
+.body{
+  background-color: #1a1532;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%; 
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  
+}
+
+.row1, .row2, .row0, .row3, .bsp {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; 
+   padding:0px;
+  
+}
+
+.player-img:hover{
+  transform: scale(1.2) ; 
+}
+
+/* Buttons styling */
+.btn0, .btn1, .btn2, .btn3, .btn4 {
+  
+  width: 100px; 
+  height: 100px; 
+  border:none;
+  background-color: transparent; 
+  display:inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; 
+  position: relative; 
+  transform: scale(1); 
+  transition: transform 0.2s ease, box-shadow 0.5s ease; 
+  
+}
+.btn0:hover, .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
+  transform: scale(1.2) ; 
+  
+}
+
+/* Image inside buttons */
+.key-img {
+  max-width: 180%; 
+  max-height: 180%; 
+  object-fit:contain;
+  position: absolute;
+  gap:5px;
+}
+
+
+/* Input fields styling */
+.uname, .pw, .eml {
+  text-align: center;
+  margin-bottom: 10px;
+  width:300px;
+  height:45px;
+  padding:10px;
+  font-size: 18px;
+  
+  border-radius:8px;
+  max-width: max-content;
+
+}
+
+
+
+.bsp {
+  display: flex;
+  gap:20px;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 15px;
+  
+}
+
+/* Button styling for delete and next buttons */
+.btn4, .lnk1 {
+  width: 100px;   
+  height: 70px;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  transition: transform 0.3s; 
+  border:none;
+  
+}
+
+/* Delete and Next Image inside buttons */
+.btn4 img, .lnk1 img {
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
+}
+
+
+
+.btn4:hover, .lnk1:hover {
+  transform: scale(1.1); 
+}
+
+
+/* Add responsiveness for smaller screens */
+@media (max-width: 600px) {
+  .btn0, .btn1, .btn2, .btn3 {
+      width: 30px;
+      height: 30px;
   }
 
-  .lnk3 a{
-    text-decoration: none;
-    color: inherit;
-  }
+  
+  .btn4, .lnk1 {
+    width: 50px;
+    height: 50px;
+}
+
+.btn4 img, .lnk1 img {
+    width: 70%; 
+    height: 70%;
+}
+.uname, .pw, .eml {
+  width: 200px; 
+  font-size: 16px;
+}
+}
+
 
   
