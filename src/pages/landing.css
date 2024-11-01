@@ -7,12 +7,13 @@
     flex-direction: column;
    
 }
+
 .landing-header {
     position: absolute;
     top: 0;
     right: 0;
     width: 100%;
-    padding: 20px 40px;
+    padding: 0px 40px;
     box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
@@ -20,6 +21,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
     position:sticky;
 }
+
 .button-container {
     display: flex;
     gap: 15px; /* Space between buttons */
@@ -306,5 +308,15 @@
     .tagline {
         font-size: 1.2rem;
     }
+
+    /* .landing-header, .button-container {
+        flex-direction: column;
+        align-items: center;
+     }
+  
+     .desc-container {
+        width: 100%;
+        flex-direction: column;
+     } */
 }
 
