@@ -1,51 +1,70 @@
-/* Profile picture styling */
-.img {
-    margin-top: 5%;
-    margin-left: 5%;
-    width: 45%;
-    height: 300px;
-    float: left;
+.profileContainer {
+    display: flex;
+    align-items: flex-start; 
 }
 
-/* Name, date of joining, and button styling */
-.profiletxt {
-    margin-left: 55%; /* To position it to the right of the profile picture */
-    margin-top: 5%;
-}
-
-.name {
-    font-size: 2rem;
+.profileItem {
+    display: flex;
+    align-items: center;
     margin-bottom: 10px;
 }
 
-.join {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+.profileData {
+    margin-left: 10px;
+    font-size: 16px;
 }
 
+.profilePic img {
+    position: absolute;
+    top: 15%;
+    left: 20%;
+    width: 15%;
+    height: auto;
+}
+
+.profiletxt {
+    display: flex;
+    flex-direction: column;
+    margin-left: 55%;
+    margin-top: 10%;
+    gap: 10px; 
+}
+
+.name {
+    width: 20%;
+    padding: 10px 0; 
+    position: relative; 
+}
+
+.join {
+    width: 15%;
+    padding: 10px 0; 
+    position: relative; 
+}
+
+
 button {
+    width: 15%;
     padding: 10px 20px;
     font-size: 1rem;
     cursor: pointer;
 }
 
-/* Statistics box in the center */
 .sts {
-    margin-top: 5%;
+    margin-top: 15%;
     width: 75%;
     height: 300px;
-    background-color: aquamarine;
+    background-color: #2e1b5b;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
 }
 
-/* Achievements box in the center, below statistics */
 .ach {
-    margin-top: 2%;
+    margin-top: 15%;
     width: 75%;
     height: 300px;
-    background-color: aquamarine;
+    background-color: #2e1b5b;
     margin-left: auto;
     margin-right: auto;
     text-align: center;

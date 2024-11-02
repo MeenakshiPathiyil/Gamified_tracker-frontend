@@ -42,7 +42,6 @@
 }
 .btn0:hover, .btn1:hover, .btn2:hover, .btn3:hover, .btn4:hover {
   transform: scale(1.2) ; 
-  
 }
 
 /* Image inside buttons */
