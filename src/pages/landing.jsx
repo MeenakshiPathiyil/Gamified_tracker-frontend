@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from "react";
-import './landing.css'
+import './landing.css';
 import { Link } from 'react-router-dom';
 
 function Landing(){
@@ -16,7 +16,7 @@ function Landing(){
     const [showFeedback,setShowFeedback] = useState(false);
     const [showTeam,setShowTeam] = useState(false);
     const [showDetails,setShowDetails] = useState(false);
-
+    const [feedbackMessage, setFeedbackMessage] = useState('');
 
     useEffect(() =>{
         setShowSymb(true);
@@ -34,6 +34,35 @@ function Landing(){
         setShowDetails(true);
     },[]);
 
+    const submitFeedback = async () => {
+        if (!feedbackMessage) {
+            alert("Please enter your feedback");
+            return;
+        }
+
+        try {
+            const response = await fetch ('/api/feedback', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: feedbackMessage}),
+            });
+
+            if (response.ok) {
+                alert("Thank you for your feedback!");
+                setFeedbackMessage('');
+            }
+            else {
+                alert("Failed to sumit feedback. Please try again");
+            }
+        }
+        catch (error) {
+            console.error("Error submitting feedback: ", error);
+            alert("An error occurred. Please try again later");
+        }
+    };
+
     
     return (
         <div className="landing">
@@ -46,7 +75,7 @@ function Landing(){
                    <img src ={`${process.env.PUBLIC_URL}/images/demo.png`} alt ="DEMO"  className="demo"/>
                 )}
                 {showSignUp &&(
-                    <Link to="/login"><img src ={`${process.env.PUBLIC_URL}/images/login.png`} alt ="LOGIN"  className="signup"/></Link>
+                     <Link to="/login"><img src ={`${process.env.PUBLIC_URL}/images/login.png`} alt ="LOGIN"  className="signup"/></Link>
                 )}
                 </div>
             </header>
@@ -134,14 +163,13 @@ function Landing(){
                 </div>
             )}
 
-
             {showFeedback && (
                 <div className="feedback">
-                    <br></br><br></br><br></br>
+                    <br/><br/><br/>
                     Your feeback means a lot to us 
                     <div className="input-container">
-                        <input className= "input" type="text" placeholder="enter your feeback here"></input>
-                        <button className="submit-btn">➔</button>
+                        <input className= "input" type="text" placeholder="enter your feeback here" value={feedbackMessage} onChange={(e) => setFeedbackMessage(e.target.value)}/>
+                        <button className="submit-btn" onClick={submitFeedback}>➔</button>
                     </div>
                     </div>
             )}
