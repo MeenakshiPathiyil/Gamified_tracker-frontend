@@ -65,10 +65,9 @@
     font-weight: bold;
 }
 button:hover {
-    background-color: #e0a2f8;
     color: white;
     cursor: pointer;
-  }
+}
 
 .Overlay {
     position: fixed;

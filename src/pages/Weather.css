@@ -1,0 +1,10 @@
+  .weather-temp {
+    font-size: 2em;
+    font-weight: bold;
+  }
+  
+  .weather-details {
+    font-size: 1em;
+    margin-top: 10px;
+  }
+  
