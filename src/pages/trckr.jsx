@@ -18,7 +18,6 @@ const HabitTracker = () => {
     const [frequency, setFrequency] = useState('');
     const [isModalOpen, setisModalOpen] = useState(false);
     
-    // Define customDays and setCustomDays with useState
     const [customDays, setCustomDays] = useState({
         monday: false,
         tuesday: false,
@@ -76,10 +75,13 @@ const HabitTracker = () => {
     const handleAddHabit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
+
+        const selectedDays = Object.keys(customDays).filter(day => customDays[day]);
+
         const habitData = {
             title,
             frequency,
-            customDays: frequency === "custom" ? customDays : null // Only include custom days if frequency is "custom"
+            customDays: frequency === "custom" ? selectedDays : [] 
         };
         console.log('Submitting habit: ', habitData);
         try {
