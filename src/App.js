@@ -10,10 +10,11 @@ function App() {
   return (
     <Routes>
       {/* <Route path="/" element={<Landing />} />
-      <Route path="/" element={<W0 />} />  
+      <Route path="/login" element={<W0 />} />  
       <Route path="/home" element={<Home />} /> 
-      <Route path="/tracker" element={<HabitTracker />} /> */}
-      <Route path="/" element={<Profile />} />
+      <Route path="/tracker" element={<HabitTracker />} />
+      <Route path="/profile" element={<Profile />} /> */}
+      <Route path ="/" element={<gamemap/>}/>
     </Routes>
   );
 }
