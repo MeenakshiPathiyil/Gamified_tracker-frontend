@@ -9,12 +9,11 @@ import Journal from './pages/Journal';
 function App() {
   return (
     <Routes>
-      {/* <Route path="/" element={<Landing />} />
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<W0 />} />  
       <Route path="/home" element={<Home />} /> 
-      <Route path="/tracker" element={<HabitTracker />} />
-      <Route path="/profile" element={<Profile />} /> */}
-      <Route path ="/" element={<gamemap/>}/>
+      <Route path="/tracker" element={<HabitTracker />} /> 
+      <Route path="/Journal" element={<Journal />} />
     </Routes>
   );
 }
