@@ -11,7 +11,8 @@
 
 .profileData {
     margin-left: 10px;
-    font-size: 16px;
+    font-size: 25px;
+    color: #c48dc8;
 }
 
 .profilePic img {
@@ -43,10 +44,9 @@
 }
 
 
-button {
-    width: 15%;
-    padding: 10px 20px;
-    font-size: 1rem;
+.changeavatar {
+    width: 30%;
+    padding: 10px 0px;
     cursor: pointer;
 }
 

@@ -4,14 +4,14 @@ import { registerUser } from '../services/apiService';
 import './lgn.css';
 
 function W0() {
-  const [step, setStep] = useState(1); // Step tracker (1: Username, 2: Email, 3: Password)
-  const [formData, setFormData] = useState({ username: '', email: '', password: '' }); // Store form data
+  const [step, setStep] = useState(1); 
+  const [formData, setFormData] = useState({ username: '', email: '', password: '' });
   const navigate = useNavigate();
 
   const items0 = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0'];
   const items1 = ['Q', 'W', 'E', 'R', 'T', 'Y', 'U', 'I', 'O', 'P'];
   const items2 = ['A', 'S', 'D', 'F', 'G', 'H', 'J', 'K', 'L'];
-  const items3 = ['dot', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '_','@'];
+  const items3 = ['.', 'Z', 'X', 'C', 'V', 'B', 'N', 'M', '_','@'];
 
   const handleChange = (e) => {
     const { name, value } = e.target;

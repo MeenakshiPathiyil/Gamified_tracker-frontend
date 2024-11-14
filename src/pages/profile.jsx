@@ -1,26 +1,32 @@
 import React, {useState, useEffect} from "react";
 import './prof.css';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const Profile = ({ userId }) => {
     const [showprofileimg, setShowprofileimg] = useState(false);
     const [showAchie, setShowAchie] = useState(false);
     const [showStats, setShowStats] = useState(false);
-    const [userData, setUserData] = useState({ username: '', joined: ''});
+    const [profile, setProfile] = useState({ username: '', Joined: ''});
 
     useEffect(() => {
-        const fetchUserData = async () => {
+        const fetchProfile = async () => {
             try {
-                const response = await axios.get('/user/${userId}');
-                setUserData(response.data);
+                const token = localStorage.getItem('token');
+                const response = await axios.get('http://localhost:5000/api/user/profile', {headers: {Authorization: `Bearer ${token}`,},});
+                const { username, Joined } = response.data;
+                setProfile({
+                    username,
+                    Joined: new Date(Joined).toLocaleDateString(),
+                });
             }
             catch(error) {
                 console.error('Error fetching user data: ', error);
             }
         };
 
-        fetchUserData();
-    }, [userId]);
+        fetchProfile();
+    }, []);
 
     useEffect(() => {
         setShowprofileimg(true); 
@@ -40,13 +46,13 @@ const Profile = ({ userId }) => {
             <div className="profiletxt">
                 <div className="profileItem">
                     <img src={`${process.env.PUBLIC_URL}/images/username.png`} alt="Name" className="name" />
-                    <span className="profileData">{userData.username}</span>
+                    <span className="profileData">{profile.username}</span>
                 </div>
                 <div className="profileItem">
                     <img src={`${process.env.PUBLIC_URL}/images/joined.png`} alt="Joining Date" className="join" />
-                    <span className="profileData">{new Date(userData.dateOfJoin).toLocaleDateString()}</span>
+                    <span className="profileData">{profile.Joined}</span>
                 </div>
-                <button>Change Avatar</button>
+                <Link to="/avatar"><img src={`${process.env.PUBLIC_URL}/images/changeavatar.png`} alt="Avatar" className="changeavatar" /></Link>
             </div>
             </div>
             {

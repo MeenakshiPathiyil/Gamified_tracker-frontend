@@ -52,9 +52,6 @@ const Home = () => {
 
   return (
     <div className="container">
-      <div className="menu">
-        <button className="hamburgerMenu">☰</button>
-      </div>
       <div className="greeting">
         <div className="button-container">
           <Link to="/tracker"><img src={`${process.env.PUBLIC_URL}/images/addhabit.png`} alt="Add Habit" className="button-item" /> </Link>
@@ -70,7 +67,7 @@ const Home = () => {
       </div>
 
       <div className="analytics">
-        <img src={`${process.env.PUBLIC_URL}/images/analytics.png`} alt="Analytics" className="analyticspic" />
+        <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/analytics.png`} alt="Analytics" className="analyticspic" /></Link>
       </div>
 
       <div className="todo">
