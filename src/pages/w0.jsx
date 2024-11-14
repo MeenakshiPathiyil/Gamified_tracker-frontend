@@ -46,14 +46,8 @@ function W0() {
         const result = await registerUser(formData); 
         console.log('Server response: ', result); 
         
-        if (result.token) {
-          const { token } = result;
-          localStorage.setItem('token', token);
-          console.log('Login Successful');
-          navigate('/home'); 
-        }
-        else {
-          console.error('Token not found in response');
+        if(result.sessionActive) {
+          navigate('/home');
         }
       } 
       catch (error) {

@@ -8,25 +8,27 @@ export const registerUser = async (formData) => {
   }
   
   try {
-    const response = await axios.post('http://localhost:5000/api/users/register', formData, {
+    const response = await axios.post('http://localhost:5000/api/user/register', formData, {
     headers: {
       'Content-Type': 'application/json',
     },
+    withCredentials: true
   });
   console.log('User registered:', response.data);
-
-  const token = response.data?.token;
-  if (token) {
-    localStorage.setItem('token', token);
-    return response.data;
-  }
-  else {
-    throw new Error ('Token not found in response');
-  }
-
+  return response.data;
   } 
   catch (error) {
     console.error('Error response: ', error.response);
+    throw error;
+  }
+};
+
+export const fetchProfile = async () => {
+  try {
+    const response = await axios.get('http://localhost:5000/api/user/profile');
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user data:', error);
     throw error;
   }
 };
