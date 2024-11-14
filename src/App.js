@@ -5,6 +5,8 @@ import Home from './pages/home';
 import HabitTracker from './pages/trckr'; 
 import Landing from './pages/Landing';
 import Journal from './pages/Journal';
+import Profile from './pages/profile';
+import Avatar from './pages/Avatar';
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
       <Route path="/home" element={<Home />} /> 
       <Route path="/tracker" element={<HabitTracker />} /> 
       <Route path="/Journal" element={<Journal />} />
+      <Route path="/profile" element={<Profile />} />
+      <Route path="/avatar" element={<Avatar />} />
+
     </Routes>
   );
 }

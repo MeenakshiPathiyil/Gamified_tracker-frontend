@@ -4,9 +4,6 @@ import './Avatar.css';
 const Avatar = () => {
     return (
         <div className="container">
-            <div className="menu">
-                <button className="hamburgerMenu">☰</button>
-            </div>
             <div className="chooseAvatar">
                 <h1>Select Your Avatar</h1>
                 <div className="images">
