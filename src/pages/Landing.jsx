@@ -72,7 +72,7 @@ function Landing(){
                    <img src ={`${process.env.PUBLIC_URL}/images/sym.png`} alt ="symbol"  className="symbol"/>
                 )}
                 {showGetDemo && (
-                   <img src ={`${process.env.PUBLIC_URL}/images/demo.png`} alt ="DEMO"  className="demo"/>
+                   <Link to="/signup"><img src ={`${process.env.PUBLIC_URL}/images/signup.png`} alt ="DEMO"  className="demo"/></Link>
                 )}
                 {showSignUp &&(
                      <Link to="/login"><img src ={`${process.env.PUBLIC_URL}/images/login.png`} alt ="LOGIN"  className="signup"/></Link>
