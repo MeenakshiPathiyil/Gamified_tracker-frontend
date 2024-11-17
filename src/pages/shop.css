@@ -1,0 +1,121 @@
+.shop-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Horizontally center items */
+    justify-content: center; /* Vertically center items */
+    height: max-content; /* Full viewport height */
+}
+
+.shop-container img {
+    max-width: 100%;
+}
+
+.shop-container > img:first-child {
+    width: 250px; /* Example size for shop.png */
+    margin-bottom: 20px;
+}
+
+.element-block > img {
+    width: 200px; /* Example size for elements.png */
+}
+
+.element-block {
+    display: flex;
+    flex-wrap: wrap; /* Wrap to the next line if there's not enough space */
+    gap: 20px; /* Space between items */
+    justify-content: center; /* Center align items */
+}
+
+.element-name {
+    color:#cc7cb1; /* Example green color */
+    font-weight: bold;
+    text-align: center; /* Optional: center-align text */
+}
+
+.element-cost {
+    color:#cc7cb1; /* Example green color */
+    
+    text-align: center; /* Optional: center-align text */
+}
+
+.flower-item:hover {
+   filter:drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
+    transform: scale(1); 
+    transition: all 0.3s ease-in-out; 
+}
+
+.tree-item{
+    width:250px;
+}
+
+.tree-item:hover {
+    filter:drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
+     transform: scale(1); 
+     transition: all 0.3s ease-in-out; 
+ }
+
+ .misc-item:hover {
+    filter:drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
+     transform: scale(1); 
+     transition: all 0.3s ease-in-out; 
+ }.modal-overlay {
+    position: fixed; /* Ensure it stays in the viewport */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex; /* Center the modal */
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Center horizontally */
+    z-index: 1000; /* Make sure it appears above other elements */
+}
+
+.modal {
+    background-color: #553769; 
+    width: 400px;
+    height:200px; 
+    padding: 20px; 
+    border: 5px solid #D277BD; 
+    border-radius: 10px; /* Rounded corners */
+    text-align: center; /* Center the text inside */
+    font-family: 'Handjet', cursive; /* Apply Handjet font */
+    color: #cc7cb1; /* Text color */
+}
+
+/* Modal Text */
+.confirm-pur {
+    font-size: 1.5em; /* Larger font for heading */
+    margin-bottom: 20px; /* Space below heading */
+    color: #D277BD; /* Contrasting color for heading */
+}
+
+.confirm-purchase {
+    margin-bottom: 20px; /* Space below description text */
+    line-height: 1.6; /* Improve readability */
+}
+
+/* Modal Buttons */
+.modal-buttons {
+    display: flex;
+    justify-content: space-around; /* Space between buttons */
+}
+
+.confirm-but,
+.cancel-but {
+    padding: 10px 20px; /* Button size */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Pointer on hover */
+    font-size: 1em; /* Font size */
+    font-family: 'Handjet', cursive; /* Ensure Handjet is applied */
+    color: #553769; /* Text color */
+    background-color: #cc7cb1; /* Background color */
+    transition: transform 0.3s ease, background-color 0.3s ease; /* Smooth hover effect */
+}
+
+.confirm-but:hover,
+.cancel-but:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    background-color: #D277BD; /* Change background on hover */
+}
