@@ -19,7 +19,7 @@ function Shop() {
         setselectedElement(element);
         setShowModal(true);
     }
-    const shopElements =
+    const shopFlowers =
     [
         {name:"Flower 1",imagePath:"/images/map/flower1.png",cost:10},
         {name:"Flower 2",imagePath:"/images/map/flower2.png",cost:20},
@@ -28,6 +28,10 @@ function Shop() {
         {name:"Flower 5",imagePath:"/images/map/flower5.png",cost:50},
         {name:"Flower 6",imagePath:"/images/map/flower6.png",cost:40},
         {name:"Flower 7",imagePath:"/images/map/flower7.png",cost:30},
+
+    ];
+
+    const shopTrees = [
         {name:"Tree 1",imagePath:"/images/map/tree1.png",cost:10},
         {name:"Tree 2",imagePath:"/images/map/tree2.png",cost:25},
         {name:"Tree 3",imagePath:"/images/map/tree3.png",cost:40},
@@ -35,14 +39,20 @@ function Shop() {
         {name:"Tree 5",imagePath:"/images/map/tree5.png",cost:30},
         {name:"Tree 7",imagePath:"/images/map/tree7.png",cost:20},
         {name:"Tree 8",imagePath:"/images/map/tree8.png",cost:20},
-        { name: "Cloud 1", imagePath: "/images/map/cloud1.png", cost: 55 },
-        { name: "Cloud 2", imagePath: "/images/map/cloud2.png", cost: 30 },
-        { name: "Bush", imagePath: "/images/map/bush.png", cost: 20 },
+    ];
+
+    const shopMisc = [
         { name: "Heart", imagePath: "/images/map/heart.png", cost: 50 },
         { name: "Hen", imagePath: "/images/map/hen.png", cost: 60 },
         { name: "Rabbit", imagePath: "/images/map/rabbit.png", cost: 60 },
+        { name: "Dog", imagePath: "/images/map/dog.png", cost: 50 },
         { name: "House", imagePath: "/images/map/house.png", cost: 45 },
         { name: "Tower", imagePath: "/images/map/tower.png", cost: 50 },
+        { name: "Bush", imagePath: "/images/map/bush.png", cost: 20 },
+        { name: "Cloud 1", imagePath: "/images/map/cloud1.png", cost: 55 },
+        { name: "Cloud 2", imagePath: "/images/map/cloud2.png", cost: 30 },
+
+        
     ];
 
     const purchaseElement = () => {
@@ -66,19 +76,39 @@ function Shop() {
 
             {showElements && (
                 <div className="element-block">
-                    <img src={'/images/elements.png'} classname="Element" alt="element" />
-                    {shopElements.map((element,index)=>(
-                        <div key={index} className="shop-item">
-                        <img
-                            src={element.imagePath}
-                            alt={element.name}
-                            className="shop-image"
-                            onClick={() => handlePurchase(element)}
-                        />
-                        <p>{element.name}</p>
-                        <p>Cost: {element.cost} coins</p>
+                    
+                    {shopFlowers.map((element,index)=>(
+                        <div key={index} className="flower-item">
+                        <img src={element.imagePath} alt={element.name} className="flower-image" onClick={() => handlePurchase(element)} />
+                        
+                             <p className="element-name">{element.name}</p>
+                             <p className="element-cost">Cost: {element.cost} coins</p>
+                        
                     </div>
                     ))}
+
+                    
+                    {shopTrees.map((element,index)=>(
+                        <div key={index} className="tree-item">
+                        <img src={element.imagePath} alt={element.name} className="tree-image" onClick={() => handlePurchase(element)} />
+                        
+                             <p className="element-name">{element.name}</p>
+                             <p className="element-cost">Cost: {element.cost} coins</p>
+                        
+                    </div>
+                    ))}
+
+                    
+                    {shopMisc.map((element,index)=>(
+                        <div key={index} className="misc-item">
+                        <img src={element.imagePath} alt={element.name} className="misc-image" onClick={() => handlePurchase(element)} />
+                        
+                             <p className="element-name">{element.name}</p>
+                             <p className="element-cost">Cost: {element.cost} coins</p>
+                        
+                    </div>
+                    ))}
+
                 </div>
             )}
 
@@ -96,16 +126,17 @@ function Shop() {
 {showModal && selectedElement && (
                 <div className="modal-overlay">
                     <div className="modal">
-                        <h2>Confirm Purchase</h2>
-                        <p classname="confirm-purchase">
+                        <h2 className="confirm-pur">Confirm Purchase</h2>
+                        <br/>
+                        <p className="confirm-purchase">
                             Do you want to purchase <strong>{selectedElement.name}</strong> for{" "}
                             <strong>{selectedElement.cost}</strong> coins?
                         </p>
+                        <br/>
                         <div className="modal-buttons">
-                            <br></br>
-                            <button onClick={purchaseElement}>Confirm</button>
-                            <br></br>
-                            <button onClick={cancelPurchase}>Cancel</button>
+                            
+                            <button className="confirm-but" onClick={purchaseElement}>Confirm</button>
+                            <button className="cancel-but" onClick={cancelPurchase}>Cancel</button>
                         </div>
                     </div>
                 </div>
