@@ -8,6 +8,7 @@ import Landing from './pages/Landing';
 import Journal from './pages/Journal';
 import Profile from './pages/profile';
 import Avatar from './pages/Avatar';
+import Shop from './pages/Shop';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
       <Route path="/Journal" element={<Journal />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/avatar" element={<Avatar />} />
+      <Route path="/shop" element={<Shop/>}/>
 
     </Routes>
   );
