@@ -32,3 +32,14 @@ export const fetchProfile = async () => {
     throw error;
   }
 };
+
+
+export const loginUser = async (data) => {
+  try {
+    const response = await axios.post('http://localhost:5000/api/user/login', data);
+    return response.data;
+  } catch (error) {
+    console.error("Login API error:", error);
+    throw error;
+  }
+};

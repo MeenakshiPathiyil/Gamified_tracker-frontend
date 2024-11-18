@@ -79,7 +79,7 @@ const Home = () => {
       </div>
 
       <div className="shop">
-        <img src={`${process.env.PUBLIC_URL}/images/shop.png`} alt="Shop" className="shoppic" />
+        <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/shop.png`} alt="Shop" className="shoppic" /></Link>
       </div>
 
       <div className="motivation">
