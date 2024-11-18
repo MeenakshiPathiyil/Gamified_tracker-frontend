@@ -11,6 +11,11 @@
     left: 10px;
 }
 
+.selectavatar {
+    width: 50%;
+    height: auto;
+}
+
 .chooseAvatar {
     display: flex;
     flex-direction: column;

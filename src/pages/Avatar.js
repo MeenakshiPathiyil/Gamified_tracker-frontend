@@ -5,7 +5,7 @@ const Avatar = () => {
     return (
         <div className="container">
             <div className="chooseAvatar">
-                <h1>Select Your Avatar</h1>
+                <img src={`${process.env.PUBLIC_URL}/images/selectavatar.png`} alt="Select Your Avatar" className="selectavatar" />
                 <div className="images">
                     <img src={`${process.env.PUBLIC_URL}/images/avatar.png`} alt="Avatar 1" className="avatar" />
                     <img src={`${process.env.PUBLIC_URL}/images/avatar.png`} alt="Avatar 2" className="avatar" />

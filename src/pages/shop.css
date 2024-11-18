@@ -58,7 +58,7 @@
     filter:drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
      transform: scale(1); 
      transition: all 0.3s ease-in-out; 
- }.modal-overlay {
+ }.shopmodal-overlay {
     position: fixed; /* Ensure it stays in the viewport */
     top: 0;
     left: 0;
@@ -71,7 +71,7 @@
     z-index: 1000; /* Make sure it appears above other elements */
 }
 
-.modal {
+.shopmodal {
     background-color: #553769; 
     width: 400px;
     height:200px; 
@@ -96,7 +96,7 @@
 }
 
 /* Modal Buttons */
-.modal-buttons {
+.shopmodal-buttons {
     display: flex;
     justify-content: space-around; /* Space between buttons */
 }

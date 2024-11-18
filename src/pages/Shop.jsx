@@ -124,8 +124,8 @@ function Shop() {
             )}
 
 {showModal && selectedElement && (
-                <div className="modal-overlay">
-                    <div className="modal">
+                <div className="shopmodal-overlay">
+                    <div className="shopmodal">
                         <h2 className="confirm-pur">Confirm Purchase</h2>
                         <br/>
                         <p className="confirm-purchase">
@@ -133,7 +133,7 @@ function Shop() {
                             <strong>{selectedElement.cost}</strong> coins?
                         </p>
                         <br/>
-                        <div className="modal-buttons">
+                        <div className="shopmodal-buttons">
                             
                             <button className="confirm-but" onClick={purchaseElement}>Confirm</button>
                             <button className="cancel-but" onClick={cancelPurchase}>Cancel</button>
