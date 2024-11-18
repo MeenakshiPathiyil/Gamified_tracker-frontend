@@ -67,7 +67,7 @@
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
     display: flex; /* Center the modal */
     align-items: center; /* Center vertically */
-    justify-content: flex-start; /* Center horizontally */
+    justify-content: center; /* Center horizontally */
     z-index: 1000; /* Make sure it appears above other elements */
 }
 
