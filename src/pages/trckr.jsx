@@ -2,96 +2,86 @@ import React, { useState } from "react";
 import addHabit from '../services/HabitService';
 import Calendar from 'react-calendar';
 import Modal from 'react-modal';
-import './habit.css'; 
+import './habit.css';
 
 Modal.setAppElement('#root');
 
 const HabitTracker = () => {
     const [showCalendar, setShowCalendar] = useState(false);
     const [val, onChange] = useState(new Date());
-    const [showGraph, setshowGraph] = useState(false);
-    const [showSqr, setshowSqr] = useState(false);
-    const [showDonut, setshowDonut] = useState(false);
-    const [showBtn, setshowBtn] = useState(false);
-    const [showWkHbt, setshowWkHbt] = useState(false);
+    const [showGraph, setShowGraph] = useState(false);
+    const [showSqr, setShowSqr] = useState(false);
+    const [showDonut, setShowDonut] = useState(false);
+    const [showBtn, setShowBtn] = useState(false);
+    const [showWkHbt, setShowWkHbt] = useState(false);
     const [title, setTitle] = useState('');
     const [frequency, setFrequency] = useState('');
-    const [isModalOpen, setisModalOpen] = useState(false);
-    
-    const [customDays, setCustomDays] = useState({
-        monday: false,
-        tuesday: false,
-        wednesday: false,
-        thursday: false,
-        friday: false,
-        saturday: false,
-        sunday: false
-    });
+    const [customDays, setCustomDays] = useState([]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [habits, setHabits] = useState([]);
 
     const pg1 = () => {
-        setShowCalendar(true); 
-        setshowGraph(true); 
-        setshowSqr(true);
-        setshowDonut(true);
-        setshowBtn(false);
-        setshowWkHbt(false);
+        setShowCalendar(true);
+        setShowGraph(true);
+        setShowSqr(true);
+        setShowDonut(true);
+        setShowBtn(false);
+        setShowWkHbt(false);
     };
 
     const pg2 = () => {
-        setshowBtn(true);
-        setshowWkHbt(true);
-        setShowCalendar(false); 
-        setshowGraph(false); 
-        setshowSqr(false);
-        setshowDonut(false);
+        setShowBtn(true);
+        setShowWkHbt(true);
+        setShowCalendar(false);
+        setShowGraph(false);
+        setShowSqr(false);
+        setShowDonut(false);
     };
 
-    const openModal = () => setisModalOpen(true);
+    const openModal = () => setIsModalOpen(true);
     const closeModal = () => {
-        setisModalOpen(false);
-        setCustomDays({
-            monday: false,
-            tuesday: false,
-            wednesday: false,
-            thursday: false,
-            friday: false,
-            saturday: false,
-            sunday: false
-        });
+        setIsModalOpen(false);
         setFrequency('');
+        setCustomDays([]);
     };
 
     const handleFrequencyChange = (e) => {
         setFrequency(e.target.value);
+        if (e.target.value !== 'custom') {
+            setCustomDays([]);
+        }
     };
 
-    const handleDayChange = (day) => {
-        setCustomDays((prevDays) => ({
-            ...prevDays,
-            [day]: !prevDays[day]
-        }));
+    const handleCustomDayChange = (dayIndex) => {
+        const updatedDays = [...customDays];
+        if (updatedDays.includes(dayIndex)) {
+            setCustomDays(updatedDays.filter((day) => day !== dayIndex));
+        } else {
+            setCustomDays([...updatedDays, dayIndex]);
+        }
     };
 
     const handleAddHabit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
 
-        const selectedDays = Object.keys(customDays).filter(day => customDays[day]);
-
-        const habitData = {
-            title,
-            frequency,
-            customDays: frequency === "custom" ? selectedDays : [] 
-        };
-        console.log('Submitting habit: ', habitData);
+        const habitData = { title, frequency, customDays };
         try {
             const result = await addHabit(habitData, token);
-            console.log(result);
+            setHabits([...habits, habitData]);
             closeModal();
-        }
-        catch (error) {
+        } catch (error) {
             console.error('Submission error: ', error);
         }
+    };
+
+    const toggleCheckbox = (habitIndex, dayIndex) => {
+        const updatedHabits = [...habits];
+        if (!updatedHabits[habitIndex].checkedDays) {
+            updatedHabits[habitIndex].checkedDays = Array(7).fill(false);
+        }
+        updatedHabits[habitIndex].checkedDays[dayIndex] = !updatedHabits[habitIndex].checkedDays[dayIndex];
+        setHabits(updatedHabits);
     };
 
     return (
@@ -106,12 +96,13 @@ const HabitTracker = () => {
                 <div className="cal">
                     <Calendar
                         defaultActiveStartDate={new Date()}
-                        onChange={onChange} value={val} />
+                        onChange={onChange}
+                        value={val}
+                    />
                 </div>
             )}
             {showGraph && <div className="grph">Bar Graph</div>}
             {showSqr && <div className="blank">Blank</div>}
-            {showWkHbt && <div className="weekly">Weekly Calendar of Habits</div>}
             {showBtn && (
                 <div className="updt">
                     <button className="add" onClick={openModal}>+</button>
@@ -119,49 +110,87 @@ const HabitTracker = () => {
                 </div>
             )}
 
-            <Modal 
+            <Modal
                 isOpen={isModalOpen}
                 onRequestClose={closeModal}
                 contentLabel="Add Habit Modal"
                 className="Modal"
                 overlayClassName="Overlay">
-                    <h2>Add a new habit</h2>
-                    <form onSubmit={handleAddHabit}>
+                <h2>Add a new habit</h2>
+                <form onSubmit={handleAddHabit}>
+                    <div>
+                        <label>Habit Title: </label>
+                        <input
+                            type="text"
+                            className="modalInput"
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            required
+                        />
+                    </div><br />
+                    <div>
+                        <label>Frequency: </label>
+                        <select
+                            className="modalInput"
+                            value={frequency}
+                            onChange={handleFrequencyChange}
+                            required
+                        >
+                            <option value="">Select the frequency</option>
+                            <option value="daily">Daily</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div><br />
+                    {frequency === 'custom' && (
                         <div>
-                            <label>Habit Title: </label>
-                            <input type="text" className="modalInput" value={title} onChange={(e) => setTitle(e.target.value)} required />
-                        </div><br />
-                        <div>
-                            <label>Frequency: </label>
-                            <select className="modalInput" value={frequency} onChange={handleFrequencyChange} required>
-                                <option value="">Select the frequency</option>
-                                <option value="daily">Daily</option>
-                                <option value="custom">Custom</option>
-                            </select>
-                        </div><br />
-                        {frequency === "custom" && (
-                            <div>
-                                <label>Select days:</label><br />
-                                <div className="customDays">
-                                    {Object.keys(customDays).map((day) => (
-                                        <label key={day}>
-                                            <input
-                                                type="checkbox"
-                                                checked={customDays[day]}
-                                                onChange={() => handleDayChange(day)}
-                                            />
-                                            {day.charAt(0).toUpperCase() + day.slice(1)}
-                                        </label>
-                                    ))}
-                                </div>
+                            <p>Select days:</p>
+                            {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day, dayIndex) => (
+                                <label key={dayIndex}>
+                                    <input
+                                        type="checkbox"
+                                        checked={customDays.includes(dayIndex)}
+                                        onChange={() => handleCustomDayChange(dayIndex)}
+                                    />
+                                    {day}
+                                </label>
+                            ))}
+                        </div>
+                    )}
+                    <button type="submit" className="modalButton">Submit</button>
+                    <button type="button" className="modalButton" onClick={closeModal}>Cancel</button>
+                </form>
+            </Modal>
+
+            <div className="habit-list">
+                <h2>Current Habits</h2>
+                {habits.map((habit, habitIndex) => (
+                    <div className="habit-item" key={habitIndex}>
+                        <h3>{habit.title}</h3>
+                        {/* <p>Frequency: {habit.frequency}</p> */}
+                        {(habit.frequency === 'daily' || habit.frequency === 'custom') && (
+                            <div className="checkboxes">
+                                {['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'].map((day, dayIndex) => {
+                                    if (habit.frequency === 'daily' || habit.customDays.includes(dayIndex)) {
+                                        return (
+                                            <label key={dayIndex}>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={habit.checkedDays?.[dayIndex] || false}
+                                                    onChange={() => toggleCheckbox(habitIndex, dayIndex)}
+                                                />
+                                                {day}
+                                            </label>
+                                        );
+                                    }
+                                    return null;
+                                })}
                             </div>
                         )}
-                        <button type="submit" className="modalButton">Submit</button>
-                        <button type="button" className="modalButton" onClick={closeModal}>Cancel</button>
-                    </form>
-            </Modal>
+                    </div>
+                ))}
+            </div>
         </div>
     );
-}
+};
 
 export default HabitTracker;
