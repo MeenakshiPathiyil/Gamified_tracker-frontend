@@ -9,11 +9,12 @@ import Journal from './pages/Journal';
 import Profile from './pages/profile';
 import Avatar from './pages/Avatar';
 import Shop from './pages/Shop';
+import Game from './pages/Game';
 
 function App() {
   return (
     <Routes>
-      <Route path="/" element={<Landing />} />
+      {/* <Route path="/" element={<Landing />} />
       <Route path="/login" element={<W0 />} />  
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/home" element={<Home />} /> 
@@ -21,7 +22,15 @@ function App() {
       <Route path="/Journal" element={<Journal />} />
       <Route path="/profile" element={<Profile />} />
       <Route path="/avatar" element={<Avatar />} />
-      <Route path="/shop" element={<Shop/>}/>
+      <Route path="/shop" element={<Shop/>}/> */}
+      {/* <Route path="/game" element={<Game />} /> */}
+      <Route path="/" element={<Landing />} />
+      <Route path="/login" element={<W0 />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/shop" element={<Shop/>}/> 
+      <Route path="/tracker" element={<HabitTracker />} /> 
+      <Route path="/profile" element={<Profile />} />
 
     </Routes>
   );

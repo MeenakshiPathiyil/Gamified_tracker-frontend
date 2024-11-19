@@ -64,8 +64,6 @@ const HabitTracker = () => {
     const handleAddHabit = async (e) => {
         e.preventDefault();
         const token = localStorage.getItem('token');
-
-        const habitData = { title, frequency, customDays };
     
         const selectedDays = Object.keys(customDays).filter(day => customDays[day]);
     
@@ -77,7 +75,6 @@ const HabitTracker = () => {
     
         console.log('Submitting habit: ', habitData);
         try {
-            const result = await addHabit(habitData, token);
             setHabits([...habits, habitData]);
             const result = await addHabit(habitData);
             console.log(result);

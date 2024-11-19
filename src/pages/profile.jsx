@@ -3,20 +3,21 @@ import './prof.css';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-const Profile = ({ userId }) => {
+const Profile = () => {
     const [showprofileimg, setShowprofileimg] = useState(false);
     const [showAchie, setShowAchie] = useState(false);
     const [showStats, setShowStats] = useState(false);
-    const [profile, setProfile] = useState({ username: '', Joined: ''});
+    const [profile, setProfile] = useState({ username: '', Joined: '', purchasedItems: []});
 
     useEffect(() => {
         const fetchProfile = async () => {
             try {
                 const response = await axios.get('http://localhost:5000/api/user/profile', {withCredentials: true});
-                const { username, Joined } = response.data;
+                const { username, Joined, purchasedItems } = response.data;
                 setProfile({
                     username,
                     Joined: new Date(Joined).toLocaleDateString(),
+                    purchasedItems: purchasedItems || [],
                 });
             }
             catch(error) {
@@ -53,6 +54,33 @@ const Profile = ({ userId }) => {
                 </div>
                 <Link to="/avatar"><img src={`${process.env.PUBLIC_URL}/images/changeavatar.png`} alt="Avatar" className="changeavatar" /></Link>
             </div>
+            <div className="purchasedItemsContainer">
+                <h2>Purchased Items</h2>
+                {profile.purchasedItems.length === 0 ? (
+                    <p>No items purchased yet!</p>
+                ) : (
+                    <div className="purchasedItems">
+                        {profile.purchasedItems.map((item, index) => (
+                            <div key={index} className="purchasedItem">
+                                <img
+                                    src={item.imagePath}
+                                    alt={item.name}
+                                    className="purchasedItemImage"
+                                />
+                                <div className="purchasedItemDetails">
+                                    <p>Name: {item.name}</p>
+                                    <p>Cost: {item.cost} coins</p>
+                                    <p>
+                                        Purchased At:{' '}
+                                        {new Date(item.purchasedAt).toLocaleDateString()}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                )}
+            </div>
+
             </div>
             {
                 showAchie && ( 
