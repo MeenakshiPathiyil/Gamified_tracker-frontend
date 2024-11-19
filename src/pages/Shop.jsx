@@ -60,26 +60,77 @@ function Shop() {
     ];
 
     const purchaseElement = async () => {
-        if (selectedElement && coins >= selectedElement.cost) {
+        
+            if (!selectedElement) {
+                alert('No element selected');
+                setShowModal(false);
+                return;
+            }
+        
             try {
                 const response = await axios.post(
                     'http://localhost:5000/api/shop/purchase', 
                     { purchasedItem: selectedElement }, 
-                    { withCredentials: true } 
+                    { 
+                        withCredentials: true,
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    }
                 );
-    
+        
                 if (response.status === 200) {
-                    setCoins(coins - selectedElement.cost); 
-                    alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
+                    // Assuming the response contains the updated user object
+                    const updatedUser = response.data.user;
+        
+                    // Update the user's purchased items
+                    // You might want to update your state or context with the new user data
+                    alert(`You purchased ${selectedElement.name} successfully!`);
+        
+                    // Optional: Update the local state or context
+                    // For example:
+                    // setUser(updatedUser);
+                    // or update purchased items list
+                    // setPurchasedItems(updatedUser.purchasedItems);
                 }
             } catch (error) {
-                console.error('Error purchasing item:', error);
-                alert('Failed to purchase item. Please try again.');
-            }
-        } else {
-            alert(`You don't have enough coins to purchase ${selectedElement.name}`);
-        }
-        setShowModal(false);
+                console.error('Error purchasing item:', error.response?.data || error.message);
+                
+                // Detailed error handling
+                if (error.response) {
+                    // Server responded with an error
+                    alert(error.response.data.message || 'Failed to purchase item');
+                } else if (error.request) {
+                    // Request made but no response received
+                    alert('No response from server. Please check your connection.');
+                } else {
+                    // Error in setting up the request
+                    alert('Error in purchase request');
+                }
+            } finally {
+                setShowModal(false);
+            
+        };
+        // if (selectedElement && coins >= selectedElement.cost) {
+        //     try {
+        //         const response = await axios.post(
+        //             'http://localhost:5000/api/shop/purchase', 
+        //             { purchasedItem: selectedElement }, 
+        //             { withCredentials: true } 
+        //         );
+    
+        //         if (response.status === 200) {
+        //             setCoins(coins - selectedElement.cost); 
+        //             alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
+        //         }
+        //     } catch (error) {
+        //         console.error('Error purchasing item:', error);
+        //         alert('Failed to purchase item. Please try again.');
+        //     }
+        // } else {
+        //     alert(`You don't have enough coins to purchase ${selectedElement.name}`);
+        // }
+        // setShowModal(false);
     };    
     
 
@@ -90,8 +141,7 @@ function Shop() {
 
     return (
         <div className="shop-container">
-            <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/name.png`} alt="Name" className="name" /></Link>
-            <img src="/images/shop.png" alt="shop" />
+            <img src="/images/shop.png" alt="shop" className="shop-img"/>
 
             <div className="coins-display">
                 <img src="/images/coin.png" alt="Coins" className="coin-icon" />
