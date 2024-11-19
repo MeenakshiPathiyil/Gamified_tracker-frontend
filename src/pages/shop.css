@@ -11,12 +11,34 @@
 }
 
 .shop-container > img:first-child {
-    width: 250px; /* Example size for shop.png */
-    margin-bottom: 20px;
+    width: 300px; /* Example size for shop.png */
+    margin-bottom: 5px;
 }
 
-.element-block > img {
-    width: 200px; /* Example size for elements.png */
+
+.coins-display {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    margin-bottom: 20px; /* Add some space below the coin display */
+}
+
+.coin-icon {
+    width: 75px; /* Increased coin icon size */
+    height: 75px; /* Make it square to maintain aspect ratio */
+    margin-right: 10px; /* Space between coin icon and number */
+}
+.coin-icon:hover {
+    filter:drop-shadow(0 0 5px  rgba(235, 255, 119, 0.8));
+    transform: scale(1); 
+    transition: all 0.3s ease-in-out;
+}
+.coins-display span {
+    font-size: 2em; /* Larger font for coin count */
+    color: #cc7cb1; /* Match your color scheme */
+    font-size:20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif; /* If you're using this font */
 }
 
 .element-block {
