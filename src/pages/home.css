@@ -43,7 +43,7 @@
   object-fit: cover
 }
 
-.modal {
+.wmodal {
   position: fixed;
   top: 0;
   left: 0;
@@ -56,7 +56,7 @@
   z-index: 1000;
 }
 
-.modal-overlay {
+.wmodal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,7 +69,7 @@
   z-index: 999; 
 }
 
-.modal-content {
+.wmodal-content {
   padding: 20px;
   width: 80%;
   max-width: 400px;

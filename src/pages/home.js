@@ -91,9 +91,9 @@ const Home = () => {
       </div>
 
       {isModalOpen && (
-        <div className="modal-overlay">
-        <div className="modal">
-          <div className="modal-content">
+        <div className="wmodal-overlay">
+        <div className="wmodal">
+          <div className="wmodal-content">
             <span className="close" onClick={closeModal}>&times;</span>
             <h2>Weather</h2>
             {loading && <p>Loading...</p>}

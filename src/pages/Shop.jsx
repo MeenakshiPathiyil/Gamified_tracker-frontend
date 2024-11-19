@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from "react";
 import './shop.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 function Shop() {
     const [showElements, setShowElements] = useState(false);
     const [showLockedEle, setShowLockedEle] = useState(false);
 
-    const [coins, setCoins] = useState(100);
+    const [coins, setCoins] = useState(() => 20); 
     const [selectedElement, setselectedElement] = useState(null);
+
     const [showModal, setShowModal] = useState(false);
+
 
     useEffect(() => {
         setShowElements(true);
@@ -19,6 +22,7 @@ function Shop() {
         setselectedElement(element);
         setShowModal(true);
     }
+
     const shopFlowers =
     [
         {name:"Flower 1",imagePath:"/images/map/flower1.png",cost:10},
@@ -55,15 +59,29 @@ function Shop() {
         
     ];
 
-    const purchaseElement = () => {
+    const purchaseElement = async () => {
         if (selectedElement && coins >= selectedElement.cost) {
-            setCoins(coins - selectedElement.cost); // Deduct cost from coins
-            alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
+            try {
+                const response = await axios.post(
+                    'http://localhost:5000/api/shop/purchase', 
+                    { purchasedItem: selectedElement }, 
+                    { withCredentials: true } 
+                );
+    
+                if (response.status === 200) {
+                    setCoins(coins - selectedElement.cost); 
+                    alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
+                }
+            } catch (error) {
+                console.error('Error purchasing item:', error);
+                alert('Failed to purchase item. Please try again.');
+            }
         } else {
             alert(`You don't have enough coins to purchase ${selectedElement.name}`);
         }
-        setShowModal(false); 
-    };
+        setShowModal(false);
+    };    
+    
 
     const cancelPurchase = () => {
         setselectedElement(null); // Reset selected element
@@ -73,6 +91,11 @@ function Shop() {
     return (
         <div className="shop-container">
             <img src="/images/shop.png" alt="shop" />
+
+            <div className="coins-display">
+                <img src="/images/coin.png" alt="Coins" className="coin-icon" />
+                <span>{coins} Coins</span>
+            </div>
 
             {showElements && (
                 <div className="element-block">
@@ -124,8 +147,8 @@ function Shop() {
             )}
 
 {showModal && selectedElement && (
-                <div className="modal-overlay">
-                    <div className="modal">
+                <div className="shopmodal-overlay">
+                    <div className="shopmodal">
                         <h2 className="confirm-pur">Confirm Purchase</h2>
                         <br/>
                         <p className="confirm-purchase">
@@ -133,7 +156,7 @@ function Shop() {
                             <strong>{selectedElement.cost}</strong> coins?
                         </p>
                         <br/>
-                        <div className="modal-buttons">
+                        <div className="shopmodal-buttons">
                             
                             <button className="confirm-but" onClick={purchaseElement}>Confirm</button>
                             <button className="cancel-but" onClick={cancelPurchase}>Cancel</button>
