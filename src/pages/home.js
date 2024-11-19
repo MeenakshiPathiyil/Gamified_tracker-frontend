@@ -3,6 +3,7 @@ import './home.css';
 import Calendar from 'react-calendar'; 
 import 'react-calendar/dist/Calendar.css'; 
 import { Link } from 'react-router-dom';
+import Todo from '../components/todo';
 import './Weather.css';
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [username, setUsername] = useState('');
   const [location, setLocation] = useState({ lat: null, lon: null });
 
   const openModal = () => setIsModalOpen(true);
@@ -48,12 +50,35 @@ const Home = () => {
     } else {
       setError("Geolocation not supported by this browser.");
     }
+    const fetchUsername = async () => {
+      try {
+        const response = await fetch('http://localhost:5000/api/user/profile', {
+          method: 'GET',
+          credentials: 'include', // Include cookies for session
+        });
+  
+        if (!response.ok) {
+          throw new Error('Failed to fetch user data');
+        }
+  
+        const data = await response.json();
+        setUsername(data.username); // Update the username state
+      } catch (error) {
+        console.error('Error fetching user data:', error);
+      }
+    };
+  
+    fetchUsername();
   }, []);
 
   return (
     <div className="container">
       <div className="greeting">
+      <div className="greet-user">Hello, {username}</div>
+
         <div className="button-container">
+        
+
           <Link to="/tracker"><img src={`${process.env.PUBLIC_URL}/images/addhabit.png`} alt="Add Habit" className="button-item" /> </Link>
           <img src={`${process.env.PUBLIC_URL}/images/weather.png`} alt="Weather" className="button-item" onClick={openModal}/>
         </div>
@@ -72,6 +97,7 @@ const Home = () => {
 
       <div className="todo">
         <img src={`${process.env.PUBLIC_URL}/images/todolist.png`} alt="ToDo" className="todopic" />
+        <Todo />
       </div>
 
       <div className="startGameLink">
@@ -84,10 +110,11 @@ const Home = () => {
 
       <div className="motivation">
         <img src={`${process.env.PUBLIC_URL}/images/motivation.png`} alt="Motivation" className="motivationpic" />
+        <p className='moti-quote'>the secret of your future is hidden in your daily routine</p>
       </div>
 
       <div className="journalLink">
-        <img src={`${process.env.PUBLIC_URL}/images/journal.png`} alt="Journal" className="journalpic" />
+        <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/journal.png`} alt="Journal" className="journalpic" /></Link>
       </div>
 
       {isModalOpen && (
