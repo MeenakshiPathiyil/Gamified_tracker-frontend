@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import { loginUser } from '../services/apiService';
 import './lgn.css';
 
@@ -41,21 +42,23 @@ function W0() {
   const handleNext = async () => {
     if (step === 3) {
       console.log('Submitting form data: ', formData);
-
       try {
-        const result = await loginUser(formData); 
-        console.log('Server response: ', result); 
-        
-        if(result.sessionActive) {
+        const response = await axios.post('http://localhost:5000/api/user/login', {
+          email: formData.email,
+          password: formData.password
+        });
+  
+        if (response.data && response.data.message === 'User login successfull') {
+          console.log('Login successful');
           navigate('/home');
+        } else {
+          console.log('Login failed. Please check your credentials.');
         }
-        else{
-          console.error('Login failed')
-        }
-      } 
-      catch (error) {
-        console.error("There was an error during login", error);
+      } catch (error) {
+        console.error('Login error:', error);
+        console.log(error.response?.data?.error || 'An error occurred during login');
       }
+      
     } 
     else {
         setStep(prevStep => prevStep + 1); 
