@@ -74,25 +74,25 @@ const HabitTracker = () => {
 
     const handleAddHabit = async (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token');
-
+    
         const selectedDays = Object.keys(customDays).filter(day => customDays[day]);
-
+    
         const habitData = {
             title,
             frequency,
-            customDays: frequency === "custom" ? selectedDays : [] 
+            customDays: frequency === "custom" ? selectedDays : [],
         };
+    
         console.log('Submitting habit: ', habitData);
         try {
-            const result = await addHabit(habitData, token);
+            const result = await addHabit(habitData);
             console.log(result);
             closeModal();
-        }
-        catch (error) {
+        } catch (error) {
             console.error('Submission error: ', error);
         }
     };
+    
 
     return (
         <div>
