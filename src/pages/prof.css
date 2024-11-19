@@ -69,3 +69,32 @@
     margin-right: auto;
     text-align: center;
 }
+
+.purchasedItemsContainer {
+    margin: 20px;
+}
+
+.purchasedItems {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.purchasedItem {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.purchasedItemImage {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.purchasedItemDetails {
+    margin-top: 10px;
+}
+

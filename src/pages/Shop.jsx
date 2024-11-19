@@ -90,6 +90,7 @@ function Shop() {
 
     return (
         <div className="shop-container">
+            <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/name.png`} alt="Name" className="name" /></Link>
             <img src="/images/shop.png" alt="shop" />
 
             <div className="coins-display">

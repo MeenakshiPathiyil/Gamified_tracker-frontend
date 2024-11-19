@@ -75,7 +75,7 @@ const Home = () => {
       </div>
 
       <div className="startGameLink">
-      <img src={`${process.env.PUBLIC_URL}/images/startgame.png`} alt="Start Game" className="gamepic" />
+      <Link to="/game"><img src={`${process.env.PUBLIC_URL}/images/startgame.png`} alt="Start Game" className="gamepic" /></Link>
       </div>
 
       <div className="shop">
