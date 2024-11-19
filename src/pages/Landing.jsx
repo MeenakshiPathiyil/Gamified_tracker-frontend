@@ -108,9 +108,9 @@ function Landing(){
                     <br></br><br></br>
                     {showCircularImg && (
                         <div className="desc-img">
-                            <img src ={`${process.env.PUBLIC_URL}/images/three.jpg`} alt ="briefdesc"  className="desc"/>
-                            <img src ={`${process.env.PUBLIC_URL}/images/three.jpg`} alt ="gamedesc"  className="game"/>
-                            <img src ={`${process.env.PUBLIC_URL}/images/three.jpg`} alt ="gamedesc"  className="char"/>
+                            <img src ={`${process.env.PUBLIC_URL}/images/brief.png`} alt ="briefdesc"  className="desc"/>
+                            <img src ={`${process.env.PUBLIC_URL}/images/gm.png`} alt ="gamedesc"  className="game"/>
+                            <img src ={`${process.env.PUBLIC_URL}/images/char.png`} alt ="gamedesc"  className="char"/>
                             </div>
                     )}
                     {showCircularText && (
@@ -131,16 +131,16 @@ function Landing(){
             )}
  {showAbtBlock && (
     <div className="about">
-        <img src={`${process.env.PUBLIC_URL}/images/abtus.jpg`} alt="ABOUT US1" className="b1" />
-        <p className="about1">Welcome to Cruxx! We are a passionate team of three 19-year-old college students who understand the challenge of maintaining habits, despite their undeniable benefits. We realized that while motivation is essential, true discipline is vital for lasting change. One of the most effective ways to cultivate discipline is through instant gratification—celebrating each small victory as we complete our habits.
+<img src={`${process.env.PUBLIC_URL}/images/move.gif`} alt="Moving Animation" className="b1" />
+<p className="about1">Welcome to Cruxx! We are a passionate team of three 19-year-old college students who understand the challenge of maintaining habits, despite their undeniable benefits. We realized that while motivation is essential, true discipline is vital for lasting change. One of the most effective ways to cultivate discipline is through instant gratification—celebrating each small victory as we complete our habits.
         <br></br><br></br>In our quest for effective habit-building strategies, we scoured the internet, exploring countless websites and absorbing various perspectives. However, we quickly discovered that existing solutions didn't fully cater to our needs. This realization sparked a new idea: why not create a platform ourselves? And thus, Cruxx was born.</p>
         
-        <img src={`${process.env.PUBLIC_URL}/images/abtus.jpg`} alt="ABOUT US2" className="b2" />
+        <img src={`${process.env.PUBLIC_URL}/images/move.gif`} alt="Moving Animation" className="b2" />
         <p className="about2">At Cruxx, we offer a gamified habit tracker designed to make the journey of building habits enjoyable. In a digital world, we strive to harness technology to its fullest potential. Many of our friends are avid gamers and inspired us to incorporate a gaming twist into our habit tracker, making it engaging and motivating for users of all ages.
         <br></br><br></br>Our mission is to provide a platform where individuals can track their habits while experiencing the joy of accomplishment. With the right tools, habit-building can become an exciting adventure, and we're thrilled to embark on this journey with you. Join us as we explore the dynamic intersection of technology, personal development, and gaming, turning the challenge of habit formation into a rewarding experience!</p>
         
-        <img src={`${process.env.PUBLIC_URL}/images/abtus.jpg`} alt="ABOUT US3" className="b3" />
-    </div>
+        <img src={`${process.env.PUBLIC_URL}/images/move.gif`} alt="Moving Animation" className="b3" />
+        </div>
 )}
 
 {showTeam && (
@@ -148,16 +148,17 @@ function Landing(){
                     <img src={`${process.env.PUBLIC_URL}/images/meet.png`} alt="ABOUT US2" className="meeth" />
                     <div className="team-members">
                         <div className="meena-container">
-                            <img src={`${process.env.PUBLIC_URL}/images/personal.jpg`} alt="meenakshi" className="meena" />
-                            <p className="fmeena">You know I'll be your life, your voice, your reason to be My love, my heart is breathing for this Moment, in time I'll find the words to say Before you leave me today</p>
+                            <img src={`${process.env.PUBLIC_URL}/images/mee.jpg`} alt="meenakshi" className="meena" />
+                            <p className="fmeena">Meenakshi Pathiyil <br></br><br></br>She has been passionate about computer science from a young age, creating her first website in tenth grade. Known for her calm and collected demeanor in all situations, she is a dedicated cybersecurity enthusiast with a strong drive for innovation and problem-solving in the tech world.</p>
                         </div>
                         <div className="neem-container">
-                            <img src={`${process.env.PUBLIC_URL}/images/personal.jpg`} alt="neema" className="neem" />
-                            <p className="fneema">You know I'll be your life, your voice, your reason to be My love, my heart is breathing for this Moment, in time I'll find the words to say Before you leave me today</p>
+                            <img src={`${process.env.PUBLIC_URL}/images/neema.jpg`} alt="neema" className="neem" />
+                            <p className="fneema">Neema Shrivastava <br></br><br></br>She is an ardent computer science student with a deep passion for graphic design and game development. With a creative mindset and a determination to excel, she dreams big and approaches every challenge as an opportunity to grow. Known for taking calculated risks, she blends innovation with practicality.</p>
                         </div>
                         <div className="namb-container">
-                            <img src={`${process.env.PUBLIC_URL}/images/personal.jpg`} alt="namritha" className="namb" />
-                            <p className="fnam">You know I'll be your life, your voice, your reason to be My love, my heart is breathing for this Moment, in time I'll find the words to say Before you leave me today</p>
+                            <img src={`${process.env.PUBLIC_URL}/images/namr.png`} alt="namritha" className="namb" />
+                            <p className="fnam">Namritha Diya Lobo<br></br><br></br>
+                            She is a hardworking computer science student with a strong passion for cybersecurity. Dedicated and persistent, she consistently strives for excellence in her pursuits. Alongside her technical skills, she possesses strong leadership qualities, inspiring and guiding those around her to achieve collective success.</p>
                         </div>
                     </div>
                 </div>
@@ -168,7 +169,7 @@ function Landing(){
                     <br/><br/><br/>
                     Your feeback means a lot to us 
                     <div className="input-container">
-                        <input className= "input" type="text" placeholder="enter your feeback here" value={feedbackMessage} onChange={(e) => setFeedbackMessage(e.target.value)}/>
+                        <input className= "input" type="text" placeholder="enter your feeback here"/>
                         <button className="submit-btn" onClick={submitFeedback}>➔</button>
                     </div>
                     </div>
