@@ -205,6 +205,7 @@
   margin-right: 50px;
   background-color: #2e1b5b;
   text-align: center;
+  
 }
 
 .motivation {
@@ -238,7 +239,24 @@
   height: auto;
 }
 
+.element{
+  margin-top: -10px;
+  width:100px;
+  display: flex;
+  
+}
+.shop-elements{
+  display: flex;
+  align-items: center;
+ 
+}
 
+
+.element:hover{
+  filter:drop-shadow(0 0 5px  rgba(188, 150, 188, 0.8));
+    transform: scale(1); 
+    transition: all 0.3s ease-in-out;
+}
 
 .motivationpic {
   max-width: 75%;
@@ -261,7 +279,7 @@
   height: auto;
 }
 
-.analytics {
+.startgameLink {
   position: absolute;
   top: 460px;
   left: 36%;
@@ -271,7 +289,7 @@
   text-align: center;
 }
 
-.analyticspic {
+.gamepic {
   max-width: 50%;
   height: auto;
 }
@@ -322,6 +340,16 @@
 .journalpic {
   max-width: 40%;
   height: auto;
+}
+.journal-elements{
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap:20px
+ 
+}
+.element1>img{
+  width:300px
 }
 
 @media screen and (max-width: 768px) {

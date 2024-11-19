@@ -91,21 +91,30 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="analytics">
-        <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/analytics.png`} alt="Analytics" className="analyticspic" /></Link>
+      <div className="startgameLink">
+        <Link to="/game"><img src={`${process.env.PUBLIC_URL}/images/startgame.png`} alt="Start-Game" className="gamepic" /></Link>
       </div>
 
       <div className="todo">
         <img src={`${process.env.PUBLIC_URL}/images/todolist.png`} alt="ToDo" className="todopic" />
         <Todo />
       </div>
-
-      <div className="startGameLink">
-      <Link to="/game"><img src={`${process.env.PUBLIC_URL}/images/startgame.png`} alt="Start Game" className="gamepic" /></Link>
+    
+      <div className="startGameLink">{/*profile*/}
+      <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/prof.png`} alt="Start Game" className="gamepic" /></Link>
       </div>
 
       <div className="shop">
         <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/shop.png`} alt="Shop" className="shoppic" /></Link>
+        <br></br>
+        <div className='shop-elements'>
+        <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/map/rabbit.png`} className='element'/></Link>
+        <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/map/tree3.png`} className='element'/></Link>
+        <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/map/flag.png`} className='element'/></Link>
+
+        </div>
+        
+        {/* <img src={`${process.env.PUBLIC_URL}/images/map/flag.png`} className='element'/> */}
       </div>
 
       <div className="motivation">
@@ -115,6 +124,11 @@ const Home = () => {
 
       <div className="journalLink">
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/journal.png`} alt="Journal" className="journalpic" /></Link>
+        <div className='journal-elements'>
+        <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
+        <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
+        <img src={`${process.env.PUBLIC_URL}/images/map/jour.png`} className='element'/>
+        </div>
       </div>
 
       {isModalOpen && (
