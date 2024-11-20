@@ -118,6 +118,20 @@
     width:100px;
 }
 
+.journalEntry {
+    color: rgb(212,186,251);
+    text-align: center;
+}
+
+.toggleButton {
+    background-color: #1a1532;
+}
+
+.toggleButtonImage {
+    background-color: #1a1532;
+    width: 100px;
+}
+
 
 
 
