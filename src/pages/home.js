@@ -127,8 +127,9 @@ const Home = () => {
         <div className='journal-elements'>
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
-        <img src={`${process.env.PUBLIC_URL}/images/map/jour.png`} className='element'/>
+        
         </div>
+        <img src={`${process.env.PUBLIC_URL}/images/jour.png`} className='element1'/>
       </div>
 
       {isModalOpen && (
