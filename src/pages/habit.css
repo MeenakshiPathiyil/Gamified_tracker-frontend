@@ -1,13 +1,3 @@
- 
-  .dnt {
-    width: 45%;
-    height: 500px;
-    background-color: orange;
-    border: 2px solid #e0a2f8;
-    margin-top: 5%;
-    margin-left: auto;
-    margin-right: auto;
-  }
   
   .grph, .blank {
     width: 20%;
@@ -38,13 +28,27 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+.updt {
+    display: flex;
+    justify-content: center;
+}
+
 .add,.minus{
-    width:7%;
-    margin-left:3%;
-    margin-top: 2.5%;
-    padding: 10px;
-    font-size: 16px;
+    width: 50px; 
+    height: 50px; 
+    margin: 0 10px; 
+    font-size: 20px; 
+    background-color: #2e1b5b;
+    color: #c48dc8;
+    border: none;
+    border-radius: 50%;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    margin-top: 400px;
 }
 
 .react-calendar{
@@ -109,3 +113,38 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
 }
+
+.habit-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #c48dc8;
+    background-color: #2e1b5b;
+    width: 600px;
+    text-align: center;
+    padding: 20px; 
+    border-radius: 10px;
+    margin: auto; 
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+}
+
+/* .pie-chart-container {
+    width: 50%; 
+    height: 100%;
+    margin: 0;
+    display: grid;
+    place-items: center;
+} */
+
+
+.logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 80px;
+}
+
