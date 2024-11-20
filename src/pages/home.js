@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import './home.css'; 
-import Calendar from 'react-calendar'; 
-import 'react-calendar/dist/Calendar.css'; 
+import './home.css';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
 import { Link } from 'react-router-dom';
 import Todo from '../components/todo';
 import './Weather.css';
+
 
 const Home = () => {
   const [date, setDate] = useState(new Date());
@@ -15,8 +16,10 @@ const Home = () => {
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState({ lat: null, lon: null });
 
+
   const openModal = () => setIsModalOpen(true);
   const closeModal = () => setIsModalOpen(false);
+
 
   const fetchWeatherData = async (lat, lon) => {
     setLoading(true);
@@ -56,33 +59,37 @@ const Home = () => {
           method: 'GET',
           credentials: 'include', // Include cookies for session
         });
-  
+ 
         if (!response.ok) {
           throw new Error('Failed to fetch user data');
         }
-  
+ 
         const data = await response.json();
         setUsername(data.username); // Update the username state
       } catch (error) {
         console.error('Error fetching user data:', error);
       }
     };
-  
+ 
     fetchUsername();
   }, []);
+
 
   return (
     <div className="container">
       <div className="greeting">
       <div className="greet-user">Hello, {username}</div>
 
+
         <div className="button-container">
-        
+       
+
 
           <Link to="/tracker"><img src={`${process.env.PUBLIC_URL}/images/addhabit.png`} alt="Add Habit" className="button-item" /> </Link>
           <img src={`${process.env.PUBLIC_URL}/images/weather.png`} alt="Weather" className="button-item" onClick={openModal}/>
         </div>
       </div>
+
 
       <div className="calendarOuter">
         <img src={`${process.env.PUBLIC_URL}/images/calendar.png`} alt="Calendar" className="calendarpic" />
@@ -91,18 +98,20 @@ const Home = () => {
         </div>
       </div>
 
+
       <div className="startgameLink">
-        <Link to="/game"><img src={`${process.env.PUBLIC_URL}/images/startgame.png`} alt="Start-Game" className="gamepic" /></Link>
-      </div>
+      <img src={`${process.env.PUBLIC_URL}/images/game-gif.gif`} alt="Game Animation" className="game-gif" />      </div>
+
 
       <div className="todo">
         <img src={`${process.env.PUBLIC_URL}/images/todolist.png`} alt="ToDo" className="todopic" />
         <Todo />
       </div>
-    
+   
       <div className="startGameLink">{/*profile*/}
       <Link to="/profile"><img src={`${process.env.PUBLIC_URL}/images/prof.png`} alt="Start Game" className="gamepic" /></Link>
       </div>
+
 
       <div className="shop">
         <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/shop.png`} alt="Shop" className="shoppic" /></Link>
@@ -112,25 +121,32 @@ const Home = () => {
         <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/map/tree3.png`} className='element'/></Link>
         <Link to="/shop"><img src={`${process.env.PUBLIC_URL}/images/map/flag.png`} className='element'/></Link>
 
+
         </div>
-        
+       
         {/* <img src={`${process.env.PUBLIC_URL}/images/map/flag.png`} className='element'/> */}
       </div>
+
 
       <div className="motivation">
         <img src={`${process.env.PUBLIC_URL}/images/motivation.png`} alt="Motivation" className="motivationpic" />
         <p className='moti-quote'>the secret of your future is hidden in your daily routine</p>
       </div>
 
+
       <div className="journalLink">
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/journal.png`} alt="Journal" className="journalpic" /></Link>
         <div className='journal-elements'>
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
+        <br></br>
+        {/* <p className='journal-caption'>start your journal journey</p> */}
         <Link to="/journal"><img src={`${process.env.PUBLIC_URL}/images/folder.png`} className='element'/></Link>
-        
+        <img src={`${process.env.PUBLIC_URL}/images/map/jour.png`} className='element'/>
         </div>
-        <img src={`${process.env.PUBLIC_URL}/images/jour.png`} className='element1'/>
+
+
       </div>
+
 
       {isModalOpen && (
         <div className="wmodal-overlay">
@@ -157,5 +173,6 @@ const Home = () => {
     </div>
   );
 };
+
 
 export default Home;
