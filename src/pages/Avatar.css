@@ -3,6 +3,7 @@
     width: 100%;
     height: auto;
     font-family: 'Garamond', serif;
+    background-color: #1a1532;
 }
 
 .menu {
@@ -12,8 +13,13 @@
 }
 
 .selectavatar {
-    width: 50%;
+    width: 55%;
     height: auto;
+}
+
+.selectavatar:hover {
+    box-shadow: 0px 15px 25px rgba(244, 148, 237, 0.7); /* More intense on hover */
+    transition: box-shadow 0.3s ease-in-out;
 }
 
 .chooseAvatar {
@@ -26,21 +32,24 @@
     padding-top: 20px;
 }
 
-.chooseAvatar h1 {
-    font-size: 50px;
-    margin: 0;
-    padding: 0;
-}
 
 .images {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    align-items: center;
+   
     margin-top: 50px;
-    gap: 30px;
+    gap: 50px; /* Increased spacing for larger avatars */
 }
 
 .avatar {
-    width: 200px;
-    height: 200px;
+    width: 250px; /* Increased size */
+    height: 250px;
+    border-radius: 10%; /* Optional: Slight rounding */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.avatar:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    box-shadow: 0px 15px 30px rgba(244, 148, 237, 0.7); /* Pink-purple shadow */
 }
