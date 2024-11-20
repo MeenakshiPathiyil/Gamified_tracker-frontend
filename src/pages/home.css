@@ -2,6 +2,7 @@
   background-color: #1a1532;
 }
 
+
 .container {
   position: relative;
   width: 100%;
@@ -10,13 +11,15 @@
   background-color: #1a1532;
 }
 
+
 .hamburgerMenu {
-  font-size: 25px; 
+  font-size: 25px;
   cursor: pointer;
   background-color: white;
   border: none;
   margin-left: 15px;
 }
+
 
 .greeting {
   position: absolute;
@@ -29,7 +32,9 @@
   background-color: #2e1b5b;
   text-align: center;
 
+
 }
+
 
 .button-container {
   display: flex;
@@ -39,12 +44,14 @@
   justify-content: center;
 }
 
+
 .button-item {
   width: 100px;
   height: auto;
   margin: 0 5px;
   object-fit: cover
 }
+
 
 .wmodal {
   position: fixed;
@@ -59,6 +66,7 @@
   z-index: 1000;
 }
 
+
 .wmodal-overlay {
   position: fixed;
   top: 0;
@@ -69,8 +77,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 999; 
+  z-index: 999;
 }
+
 
 .wmodal-content {
   padding: 20px;
@@ -83,6 +92,7 @@
   color: #d4bafb;
 }
 
+
 .close {
   position: absolute;
   top: 10px;
@@ -93,7 +103,10 @@
 }
 
 
+
+
 @import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+
 
 .greet-user{
   color:#d4bafb;
@@ -103,6 +116,7 @@
   text-align: left; */
 }
 
+
 .greeting button {
   background-color: gray;
   color: white;
@@ -110,22 +124,25 @@
   padding: 10px 20px;
   text-align: center;
   text-decoration: none;
-  display: inline-block; 
-  font-size: 14px; 
-  margin: -40px 5px; 
+  display: inline-block;
+  font-size: 14px;
+  margin: -40px 5px;
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s;
 }
 
+
 .greeting button:hover {
-  background-color: darkgray; 
+  background-color: darkgray;
 }
+
 
 .calendarpic {
   max-width: 40%;
   height: auto;
 }
+
 
 .calendarOuter {
   position: absolute;
@@ -137,11 +154,13 @@
   text-align: center;
 }
 
+
 .calendar {
-  transform: scale(0.74); 
-  transform-origin: top left; 
+  transform: scale(0.74);
+  transform-origin: top left;
   width: 100%;
 }
+
 
 .calendarOuter .react-calendar {
   width: 100%;
@@ -152,49 +171,59 @@
   background-color: transparent;
   border-radius: 10px;
   border: none;
-  font-family: 'Times New Roman', serif; 
+  font-family: 'Times New Roman', serif;
   padding: 10px;
 }
 
+
 .calendarOuter .react-calendar__tile--active {
-  background-color: #c48dc8; 
+  background-color: #c48dc8;
   color: #2e1b5b !important;
 }
+
 
 .calendarOuter .react-calendar__tile {
   color: #d4bafb;
 }
 
+
 .calendarOuter .react-calendar__tile:hover {
   background-color: rgba(144, 127, 184, 0.4) !important;
 }
 
+
 .calendarOuter .react-calendar__month-view__days__day--neighboringMonth {
   color: rgba(212, 186, 251, 0.4);
 }
+
 
 .calendarOuter .react-calendar__navigation__label {
   color: #d4bafb;
   background-color: #2e1b5b;
 }
 
+
 .calendarOuter .react-calendar__navigation__label:hover {
   background-color: rgba(144, 127, 184, 0.4) !important;
 }
+
 
 .calendarOuter .react-calendar__navigation__arrow {
   color: #d4bafb;
   background-color: #2e1b5b;
 }
 
+
 .calendarOuter .react-calendar__navigation__arrow:hover {
   background-color: rgba(144, 127, 184, 0.4) !important;
 }
+
 
 .calendarOuter .react-calendar__month-view__weekdays {
   color: #d4bafb;
   text-decoration: none;
 }
+
 
 .shop {
   position: absolute;
@@ -205,8 +234,9 @@
   margin-right: 50px;
   background-color: #2e1b5b;
   text-align: center;
-  
+ 
 }
+
 
 .motivation {
   position: absolute;
@@ -228,10 +258,12 @@
   line-height: 1.2; /* Adjust line height for better readability */
 
 
+
+
 }
 .moti-quote:hover{
   filter:drop-shadow(0 0 5px  rgba(245, 179, 179, 0.8));
-    transform: scale(1.05); 
+    transform: scale(1.05);
     transition: all 0.3s ease-in-out
 }
 .shoppic {
@@ -239,11 +271,12 @@
   height: auto;
 }
 
+
 .element{
   margin-top: -10px;
   width:100px;
   display: flex;
-  
+ 
 }
 .shop-elements{
   display: flex;
@@ -252,16 +285,21 @@
 }
 
 
+
+
 .element:hover{
   filter:drop-shadow(0 0 5px  rgba(188, 150, 188, 0.8));
-    transform: scale(1); 
+    transform: scale(1);
     transition: all 0.3s ease-in-out;
 }
+
 
 .motivationpic {
   max-width: 75%;
   height: auto;
 }
+
+
 
 
 .todo {
@@ -274,10 +312,12 @@
   text-align: center;
 }
 
+
 .todopic {
   max-width: 55%;
   height: auto;
 }
+
 
 .startgameLink {
   position: absolute;
@@ -289,10 +329,19 @@
   text-align: center;
 }
 
+
+.game-gif {
+  width: 100%;  
+  height: 200px;
+  max-width: 380px;
+  display: block;
+  margin: 10px auto;
+}
 .gamepic {
   max-width: 50%;
   height: auto;
 }
+
 
 .startGameLink {
   position: absolute;
@@ -304,19 +353,23 @@
   text-align: center;
 }
 
+
 .startGameLink a {
   text-decoration: none;
   color: inherit;
 }
 
+
 .startGameLink a:hover {
   color: cadetblue;
 }
+
 
 .gamepic {
   max-width: 45%;
   height: auto;
 }
+
 
 .journalLink {
   position: absolute;
@@ -328,14 +381,17 @@
   text-align: center;
 }
 
+
 .journalLink a {
   text-decoration: none;
   color: inherit;
 }
 
+
 .journalLink a:hover {
   color: cadetblue;
 }
+
 
 .journalpic {
   max-width: 40%;
@@ -348,17 +404,18 @@
   gap:20px
  
 }
-.element1>img{
-bottom: 200px;
-  right: 200px;
-  width:10px
+.journal-caption{
+  display: flex;
+  font-family:'Jersey 20', sans-serif;
 }
+
 
 @media screen and (max-width: 768px) {
   .container {
     flex-direction: column;
     align-items: center;
   }
+
 
   .greeting,
   .calendarOuter,
@@ -369,10 +426,11 @@ bottom: 200px;
   .motivation,
   .journalLink {
     flex: 1 1 90%;
-    margin: 10px 0; 
+    margin: 10px 0;
     min-height: 150px;
   }
 }
+
 
 @media screen and (max-height: 600px) {
   .greeting,
@@ -383,12 +441,14 @@ bottom: 200px;
   .shop,
   .motivation,
   .journalLink {
-    min-height: 80px; 
+    min-height: 80px;
   }
 }
 
+
 @media screen and (max-width: 480px) {
   .hamburgerMenu {
-    font-size: 20px; 
+    font-size: 20px;
   }
 }
+ 

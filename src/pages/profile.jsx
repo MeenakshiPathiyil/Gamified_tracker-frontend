@@ -71,31 +71,32 @@ const Profile = () => {
                 <Link to="/avatar"><img src={`${process.env.PUBLIC_URL}/images/changeavatar.png`} alt="Avatar" className="changeavatar" /></Link>
             </div>
             <div className="purchasedItemsContainer">
-                <h2>Purchased Items</h2>
-                {profile.purchasedItems.length === 0 ? (
-                    <p>No items purchased yet!</p>
-                ) : (
-                    <div className="purchasedItems">
-                        {profile.purchasedItems.map((item, index) => (
-                            <div key={index} className="purchasedItem">
-                                <img
-                                    src={item.imagePath}
-                                    alt={item.name}
-                                    className="purchasedItemImage"
-                                />
-                                <div className="purchasedItemDetails">
-                                    <p>Name: {item.name}</p>
-                                    <p>Cost: {item.cost} coins</p>
-                                    <p>
-                                        Purchased At:{' '}
-                                        {new Date(item.purchasedAt).toLocaleDateString()}
-                                    </p>
-                                </div>
-                            </div>
-                        ))}
+    <h2>Purchased Items</h2>
+    {profile.purchasedItems.length === 0 ? (
+        <p>No items purchased yet!</p>
+    ) : (
+        <div className="purchasedItems">
+            {profile.purchasedItems.map((item, index) => (
+                <div key={index} className="purchasedItem">
+                    <img
+                        src={item.imagePath}
+                        alt={item.name}
+                        className="purchasedItemImage"
+                    />
+                    <div className="purchasedItemDetails">
+                        <p>Name: {item.name}</p>
+                        <p>Cost: {item.cost} coins</p>
+                        <p>
+                            Purchased At:{' '}
+                            {new Date(item.purchasedAt).toLocaleDateString()}
+                        </p>
                     </div>
-                )}
-            </div>
+                </div>
+            ))}
+        </div>
+    )}
+</div>
+
 
             </div>
             {
