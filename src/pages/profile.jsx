@@ -7,7 +7,9 @@ const Profile = () => {
     const [showprofileimg, setShowprofileimg] = useState(false);
     const [showAchie, setShowAchie] = useState(false);
     const [showStats, setShowStats] = useState(false);
-    const [profile, setProfile] = useState({ username: '', Joined: '', purchasedItems: []});
+    const [profile, setProfile] = useState({ username: '', Joined: '', purchasedItems: [],
+        avatar: `${process.env.PUBLIC_URL}/images/avatar1.png`, // Default avatar
+     });
 
     useEffect(() => {
         const fetchProfile = async () => {
@@ -18,6 +20,7 @@ const Profile = () => {
                     username,
                     Joined: new Date(Joined).toLocaleDateString(),
                     purchasedItems: purchasedItems || [],
+                    avatar: `${process.env.PUBLIC_URL}/images/avatar1.png`,
                 });
             }
             catch(error) {
@@ -26,6 +29,17 @@ const Profile = () => {
         };
 
         fetchProfile();
+
+        const selectedAvatar = localStorage.getItem('selectedAvatar');
+        console.log('Selected avatar: ',localStorage.getItem('selectedAvatar'));
+
+        if (selectedAvatar) {
+            setProfile((prevProfile) => ({
+                ...prevProfile,
+                avatar: selectedAvatar,
+            }));
+        }
+
     }, []);
 
     useEffect(() => {
@@ -37,10 +51,12 @@ const Profile = () => {
     return (
         <div>
             <div className="profileContainer">
-            
+            <img src={`${process.env.PUBLIC_URL}/images/sym.png`} alt="symbol" className="sym" />
             {
                 showprofileimg && ( 
-                    <div className="profilePic"><img src={`${process.env.PUBLIC_URL}/images/avatar.png`} alt="profile pic"/></div>
+                    <div className="profilePic">
+                    <img src={profile.avatar} alt="profile pic" />
+                </div>
                 )
             }
             <div className="profiletxt">

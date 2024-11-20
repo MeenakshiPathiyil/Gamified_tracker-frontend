@@ -2,7 +2,11 @@
     display: flex;
     align-items: flex-start; 
 }
-
+.sym{
+    top:30px;
+    left:40px;
+    width:6%;
+}
 .profileItem {
     display: flex;
     align-items: center;
@@ -13,14 +17,22 @@
     margin-left: 10px;
     font-size: 25px;
     color: #c48dc8;
+    font-family:'Jersey 20', sans-serif;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
 .profilePic img {
     position: absolute;
-    top: 15%;
-    left: 20%;
-    width: 15%;
+    top: 100px;
+    left: 400px;
+    width: 20%;
     height: auto;
+}
+
+.profilePic img:hover{
+    filter:drop-shadow(0 0 5px  rgba(180, 119, 255, 0.8));
+    transform: scale(1); 
+    transition: all 0.3s ease-in-out;
 }
 
 .profiletxt {
@@ -48,8 +60,13 @@
     width: 30%;
     padding: 10px 0px;
     cursor: pointer;
+    
 }
-
+.changeavatar:hover{
+    filter:drop-shadow(0 0 5px  rgba(203, 119, 255, 0.8));
+    transform: scale(1); 
+    transition: all 0.3s ease-in-out;
+}
 .sts {
     margin-top: 15%;
     width: 75%;
