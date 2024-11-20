@@ -1,29 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Journal.css'; 
 import { Link } from 'react-router-dom';
-import axios from 'axios';
+import { saveJournalEntry, fetchJournalEntries } from '../services/journalService'; 
 
 const Journal = () => {
-    const [emotion, setEmotion] = useState(''); // State to store the selected emotion
-    const [thoughts, setThoughts] = useState(''); // State to store the journal content
-    const [message, setMessage] = useState(''); // State for displaying success/error message
+    const [emotion, setEmotion] = useState('');
+    const [thoughts, setThoughts] = useState('');
+    const [message, setMessage] = useState('');
+    const [journals, setJournals] = useState([]); 
+    const [showEntries, setShowEntries] = useState(false); 
+
+    useEffect(() => {
+        const getJournals = async () => {
+            try {
+                const entries = await fetchJournalEntries();
+                setJournals(entries);
+            } catch (error) {
+                setMessage(error.message);
+            }
+        };
+
+        getJournals();
+    }, []);
 
     const handleEmotionClick = (altText) => {
-        setEmotion(altText); // Update the emotion state with the alt text
+        setEmotion(altText);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:5000/api/journal', {
-                emotion,
-                thoughts,
-            });
-            setMessage('Journal entry saved successfully!');
+            const data = await saveJournalEntry(emotion, thoughts);
+            setEmotion('');
+            setThoughts('');
+            setJournals([data.journal, ...journals]); 
         } catch (error) {
-            console.error('Error submitting journal:', error);
-            setMessage('Error submitting journal. Please try again.');
+            setMessage(error.message);
         }
+    };
+
+    const toggleEntriesVisibility = () => {
+        setShowEntries((prevState) => !prevState); 
     };
 
     return (
@@ -39,44 +56,66 @@ const Journal = () => {
             <div className="journal">
                 <h1>Journal</h1>
                 <div className="imageContainer">
-                    <button className="emotionButton" onClick={() => handleEmotionClick('Happy')}>
-                        <img src={`${process.env.PUBLIC_URL}/images/emoji1.png`} alt="Happy" className="emotions" />
-                    </button>
-                    <button className="emotionButton" onClick={() => handleEmotionClick('Calm')}>
-                        <img src={`${process.env.PUBLIC_URL}/images/emoji2.png`} alt="Calm" className="emotions" />
-                    </button>
-                    <button className="emotionButton" onClick={() => handleEmotionClick('Frustrated')}>
-                        <img src={`${process.env.PUBLIC_URL}/images/emoji3.png`} alt="Frustrated" className="emotions" />
-                    </button>
-                    <button className="emotionButton" onClick={() => handleEmotionClick('Scared')}>
-                        <img src={`${process.env.PUBLIC_URL}/images/emoji4.png`} alt="Scared" className="emotions" />
-                    </button>
-                    <button className="emotionButton" onClick={() => handleEmotionClick('Sad')}>
-                        <img src={`${process.env.PUBLIC_URL}/images/emoji5.png`} alt="Sad" className="emotions" />
-                    </button>
+                    {['Happy', 'Calm', 'Frustrated', 'Scared', 'Sad'].map((emotionName, index) => (
+                        <button
+                            key={index}
+                            className="emotionButton"
+                            onClick={() => handleEmotionClick(emotionName)}
+                        >
+                            <img
+                                src={`${process.env.PUBLIC_URL}/images/emoji${index + 1}.png`}
+                                alt={emotionName}
+                                className="emotions"
+                            />
+                        </button>
+                    ))}
                 </div>
                 <p className="mood">{emotion && `Today's emotion: ${emotion}`}</p>
 
-                <textarea 
-                    className="thoughts" 
-                    placeholder="Reflect on Your Day" 
-                    rows="10" 
+                <textarea
+                    className="thoughts"
+                    placeholder="Reflect on Your Day"
+                    rows="10"
                     cols="50"
                     value={thoughts}
-                    onChange={(e) => setThoughts(e.target.value)} // Handle input for thoughts
+                    onChange={(e) => setThoughts(e.target.value)}
                 />
-                
+
                 <div className="submitButton">
-                    <img 
-                        src={`${process.env.PUBLIC_URL}/images/submit.png`} 
-                        alt="Submit" 
-                        className="submitButtonImage" 
-                        onClick={handleSubmit} 
+                    <img
+                        src={`${process.env.PUBLIC_URL}/images/submit.png`}
+                        alt="Submit"
+                        className="submitButtonImage"
+                        onClick={handleSubmit}
                     />
                 </div>
 
-                {message && <p>{message}</p>}
+                <div className="toggleButton" onClick={toggleEntriesVisibility}>
+                    <img
+                        src={`${process.env.PUBLIC_URL}/images/display.png`}
+                        alt={showEntries ? 'Hide Entries' : 'Show Entries'}
+                        className="toggleButtonImage"
+                    />
+                </div>
             </div>
+
+            {/* Journal Entries Section */}
+            {showEntries && (
+                <div className="journalEntriesContainer">
+                    <h2>Your Journal Entries</h2>
+                    {journals.length > 0 ? (
+                        journals.map((journal) => (
+                            <div key={journal._id} className="journalEntry">
+                                <p><strong>Date:</strong> {new Date(journal.date).toLocaleDateString()}</p>
+                                <p><strong>Emotion:</strong> {journal.emotion}</p>
+                                <p><strong>Thoughts:</strong> {journal.thoughts}</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>No journal entries found.</p>
+                    )}
+                </div>
+            )}
         </div>
     );
 };
