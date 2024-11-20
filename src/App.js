@@ -9,7 +9,7 @@ import Journal from './pages/Journal';
 import Profile from './pages/profile';
 import Avatar from './pages/Avatar';
 import Shop from './pages/Shop';
-import Game from './pages/Game';
+
 
 function App() {
   return (
@@ -31,6 +31,8 @@ function App() {
       <Route path="/shop" element={<Shop/>}/> 
       <Route path="/tracker" element={<HabitTracker />} /> 
       <Route path="/profile" element={<Profile />} />
+      <Route path="/journal" element={<Journal />}/>
+      
 
     </Routes>
   );

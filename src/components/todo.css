@@ -1,0 +1,98 @@
+.todo-container {
+    margin-top: 5px;
+    max-width: 320px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+
+
+.todo-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.todo-input {
+    margin-bottom: 10px;
+    padding: 10px;
+    font-size: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.todo-list {
+    margin-top: -20px;
+}
+
+.todo-item {
+    display: flex;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+@import url('https://fonts.googleapis.com/css2?family=Jersey+20&display=swap');
+
+.todo-item-content {
+    display: flex;
+    width: 100%;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.large-checkbox {
+    width: 30px;
+    height: 30px;
+    background-color:#7C58AA;
+}
+
+.todo-details {
+    flex-grow: 1;
+    text-align: left;
+}
+
+.completed-task {
+    text-decoration: line-through;
+    color: #888;
+}
+
+.task-name {
+    margin: 0 0 2px;
+    font-size: 20px;
+    font-family:'Jersey 20', sans-serif;
+    color:#d4bafb;
+
+}
+
+
+
+.add-task {
+    padding: 5px 10px;
+    background-color: #d4bafb;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.add-task:hover {
+    background-color: #7C58AA;
+}
+
+.delete{
+    background-color:#7C58AA;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    color:#d4bafb
+}
+.delete:hover{
+    background-color: #ebb0e7;
+}
+.completion-count {
+    margin-top: 10px;
+    font-weight: bold;
+}
