@@ -123,6 +123,11 @@
     text-align: center;
 }
 
+.journalEntriesContainer {
+    color: rgb(212,186,251);
+    text-align: center;
+}
+
 .toggleButton {
     background-color: #1a1532;
 }

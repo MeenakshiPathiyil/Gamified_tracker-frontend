@@ -33,11 +33,14 @@ const Journal = () => {
             const data = await saveJournalEntry(emotion, thoughts);
             setEmotion('');
             setThoughts('');
-            setJournals([data.journal, ...journals]); 
+            
+            const entries = await fetchJournalEntries();
+            setJournals(entries); 
         } catch (error) {
             setMessage(error.message);
         }
     };
+    
 
     const toggleEntriesVisibility = () => {
         setShowEntries((prevState) => !prevState); 
