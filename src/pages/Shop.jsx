@@ -111,26 +111,26 @@ function Shop() {
                 setShowModal(false);
             
         };
-        // if (selectedElement && coins >= selectedElement.cost) {
-        //     try {
-        //         const response = await axios.post(
-        //             'http://localhost:5000/api/shop/purchase', 
-        //             { purchasedItem: selectedElement }, 
-        //             { withCredentials: true } 
-        //         );
+        if (selectedElement && coins >= selectedElement.cost) {
+            try {
+                const response = await axios.post(
+                    'http://localhost:5000/api/shop/purchase', 
+                    { purchasedItem: selectedElement }, 
+                    { withCredentials: true } 
+                );
     
-        //         if (response.status === 200) {
-        //             setCoins(coins - selectedElement.cost); 
-        //             alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
-        //         }
-        //     } catch (error) {
-        //         console.error('Error purchasing item:', error);
-        //         alert('Failed to purchase item. Please try again.');
-        //     }
-        // } else {
-        //     alert(`You don't have enough coins to purchase ${selectedElement.name}`);
-        // }
-        // setShowModal(false);
+                if (response.status === 200) {
+                    setCoins(coins - selectedElement.cost); 
+                    alert(`You purchased ${selectedElement.name} for ${selectedElement.cost} coins!`);
+                }
+            } catch (error) {
+                console.error('Error purchasing item:', error);
+                alert('Failed to purchase item. Please try again.');
+            }
+        } else {
+            alert(`You don't have enough coins to purchase ${selectedElement.name}`);
+        }
+        setShowModal(false);
     };    
     
 
